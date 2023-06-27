@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Grid布局 | Boke</title>
+  <title>Vue的初始化过程都做了什么？ | Boke</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -417,21 +417,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp')">
+  background-position: center center;position: relative;background-image:url('https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        Grid布局
+        Vue的初始化过程都做了什么？
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2023-06-17 |
+          <i class="fas fa-calendar"></i> Published in：2023-06-27 |
         </span>
       
 
@@ -439,8 +439,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> category：
           
-            <a href="/categories/CSS/" class="post-detail-header_category">
-              CSS
+            <a href="/categories/Vue/" class="post-detail-header_category">
+              Vue
             </a>
           
         </span>
@@ -449,11 +449,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 439 |
+            <i class="fas fa-file-text-o"></i> Words: 2.3k |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 1min |
+            <i class="fas fa-clock"></i> Reading time: 8min |
           </span>
   
           
@@ -480,50 +480,139 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h1 id="CSS-Grid布局的使用"><a href="#CSS-Grid布局的使用" class="headerlink" title="CSS Grid布局的使用"></a>CSS Grid布局的使用</h1><p>介绍之前，先了解一下该门技术的优缺点，看自己是否值得学习，优缺点如下：</p>
+        <h2 id="Vue的初始化过程都做了什么？"><a href="#Vue的初始化过程都做了什么？" class="headerlink" title="Vue的初始化过程都做了什么？"></a>Vue的初始化过程都做了什么？</h2><p>从构造函数前面打断点，然后进行一步步的调试：<br><img src="/img/initvue1.png" class="lazyload placeholder" data-srcset="/img/initvue1.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="调试方式"><br>首先会进入init.js里面执行Vue构造函数。init函数之前会进行一下判断：即init之前的代码作用为:检测在使用 Vue 构造函数时是否使用了 new 关键字进行实例化。它主要用于开发环境下的警告提示,之后开始执行init函数正式进入Vue初始化过程。这个options就是用户传入的合并选项在这里，即</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token punctuation">{</span>data<span class="token punctuation">:</span><span class="token punctuation">{</span>msg<span class="token punctuation">:</span><span class="token string">'123'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+methods<span class="token punctuation">:</span><span class="token punctuation">{</span>
+<span class="token function">eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'eat'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token function">drink</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'drink'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span>
+</code></pre>
+<p><img src="/img/initvue2.png" class="lazyload placeholder" data-srcset="/img/initvue2.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="init初始化方法"><br>下面让我们进入init方法，给出具体的源代码：rt</p>
+<pre class=" language-typescript"><code class="language-typescript">Vue<span class="token punctuation">.</span>prototype<span class="token punctuation">.</span>_init <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>options<span class="token operator">?</span><span class="token punctuation">:</span> Object<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> vm<span class="token punctuation">:</span> Component <span class="token operator">=</span> <span class="token keyword">this</span>
+    <span class="token comment" spellcheck="true">// a uid</span>
+    vm<span class="token punctuation">.</span>_uid <span class="token operator">=</span> uid<span class="token operator">++</span>
+    <span class="token keyword">let</span> startTag<span class="token punctuation">,</span> endTag
+    <span class="token comment" spellcheck="true">/* istanbul ignore if */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>NODE_ENV <span class="token operator">!==</span> <span class="token string">'production'</span> <span class="token operator">&amp;&amp;</span> config<span class="token punctuation">.</span>performance <span class="token operator">&amp;&amp;</span> mark<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      startTag <span class="token operator">=</span> <span class="token template-string"><span class="token string">`vue-perf-start:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>vm<span class="token punctuation">.</span>_uid<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+      endTag <span class="token operator">=</span> <span class="token template-string"><span class="token string">`vue-perf-end:</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>vm<span class="token punctuation">.</span>_uid<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span>
+      <span class="token function">mark</span><span class="token punctuation">(</span>startTag<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// a flag to avoid this being observed</span>
+    vm<span class="token punctuation">.</span>_isVue <span class="token operator">=</span> <span class="token keyword">true</span>
+    <span class="token comment" spellcheck="true">// merge options</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>options <span class="token operator">&amp;&amp;</span> options<span class="token punctuation">.</span>_isComponent<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck="true">// optimize internal component instantiation</span>
+      <span class="token comment" spellcheck="true">// since dynamic options merging is pretty slow, and none of the</span>
+      <span class="token comment" spellcheck="true">// internal component options needs special treatment.</span>
+      <span class="token function">initInternalComponent</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> options<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      vm<span class="token punctuation">.</span>$options <span class="token operator">=</span> <span class="token function">mergeOptions</span><span class="token punctuation">(</span>
+        <span class="token function">resolveConstructorOptions</span><span class="token punctuation">(</span>vm<span class="token punctuation">.</span><span class="token keyword">constructor</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        options <span class="token operator">||</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+        vm
+      <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/* istanbul ignore else */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>NODE_ENV <span class="token operator">!==</span> <span class="token string">'production'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">initProxy</span><span class="token punctuation">(</span>vm<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      vm<span class="token punctuation">.</span>_renderProxy <span class="token operator">=</span> vm
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">// expose real self</span>
+    vm<span class="token punctuation">.</span>_self <span class="token operator">=</span> vm
+    <span class="token function">initLifecycle</span><span class="token punctuation">(</span>vm<span class="token punctuation">)</span>
+    <span class="token function">initEvents</span><span class="token punctuation">(</span>vm<span class="token punctuation">)</span>
+    <span class="token function">initRender</span><span class="token punctuation">(</span>vm<span class="token punctuation">)</span>
+    <span class="token function">callHook</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> <span class="token string">'beforeCreate'</span><span class="token punctuation">)</span>
+    <span class="token function">initInjections</span><span class="token punctuation">(</span>vm<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// resolve injections before data/props</span>
+    <span class="token function">initState</span><span class="token punctuation">(</span>vm<span class="token punctuation">)</span>
+    <span class="token function">initProvide</span><span class="token punctuation">(</span>vm<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// resolve provide after data/props</span>
+    <span class="token function">callHook</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> <span class="token string">'created'</span><span class="token punctuation">)</span>
+
+    <span class="token comment" spellcheck="true">/* istanbul ignore if */</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>NODE_ENV <span class="token operator">!==</span> <span class="token string">'production'</span> <span class="token operator">&amp;&amp;</span> config<span class="token punctuation">.</span>performance <span class="token operator">&amp;&amp;</span> mark<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      vm<span class="token punctuation">.</span>_name <span class="token operator">=</span> <span class="token function">formatComponentName</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> <span class="token keyword">false</span><span class="token punctuation">)</span>
+      <span class="token function">mark</span><span class="token punctuation">(</span>endTag<span class="token punctuation">)</span>
+      <span class="token function">measure</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`vue </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>vm<span class="token punctuation">.</span>_name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> init`</span></span><span class="token punctuation">,</span> startTag<span class="token punctuation">,</span> endTag<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>vm<span class="token punctuation">.</span>$options<span class="token punctuation">.</span>el<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      vm<span class="token punctuation">.</span><span class="token function">$mount</span><span class="token punctuation">(</span>vm<span class="token punctuation">.</span>$options<span class="token punctuation">.</span>el<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>这个方法是vue实例的初始化方法，它会在创建一个 Vue 实例时被调用。让我们来进一步展开这个方法具体做了什么。</p>
+<ol>
+<li>首先，给当前实例设置 _uid 属性，用于标识唯一的 Vue 实例。</li>
+<li>创建变量startTag 和 endTag 是用于标记解析模板中的标签的起始和结束位置的变量。这是为了创建ast语法树用的，然后设置实例的 _isVue 属性为 true，表示该对象是一个 Vue 实例。</li>
+<li>判断该组件是不是内部组件，如果是内部组件则调用initInternalComponent(vm, options)进行组件合并，否则调用mergeOptions进行组件合并，至于为什么这么做，就是为了提高性能，下面是详细的介绍：</li>
+</ol>
 <blockquote>
-<p>优点：CSS Grid布局是一种用于创建网页布局的强大工具。它引入了一个二维网格系统，可以以行和列的形式创建布局，提供了更灵活和精确的控制，并且减少了不必要的一些计算。<br>缺点：兼容性问题：CSS Grid布局是在CSS3中引入的较新的特性，因此旧版本的浏览器可能不支持它或支持有限。</p>
+<p>当创建一个组件实例时，会调用 _init 方法进行初始化。在初始化过程中，会检查 options 对象是否存在且具有 _isComponent 属性。如果存在，并且 _isComponent 的值为 true，则表示当前组件是一个内部组件（可以想象成局部注册的组件）。<br>针对内部组件的实例化，由于内部组件的选项合并不需要特殊处理，而且动态选项合并的性能较低，因此可以进行优化。在这种情况下，会调用 initInternalComponent 方法，将内部组件实例和选项对象作为参数传递给该方法。<br>initInternalComponent 方法负责完成内部组件的初始化，包括对选项的处理、状态的初始化等。通过将内部组件的初始化逻辑单独提取为一个方法，可以提高内部组件实例化的性能，并避免对内部组件的选项进行不必要的处理。<br>总而言之，上述代码片段中的逻辑用于优化内部组件的实例化过程，通过调用 initInternalComponent 方法进行内部组件的初始化。这样可以提高内部组件实例化的性能，并简化内部组件选项的处理过程。</p>
 </blockquote>
-<h2 id="具体的使用"><a href="#具体的使用" class="headerlink" title="具体的使用"></a>具体的使用</h2><p>  <strong>布局效果如下：（利用grid布局）</strong><br> <img src="/img/result.png" class="lazyload placeholder" data-srcset="/img/result.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="效果图"><br>上图利用grid栅格系统，从上到下共三个部分，nav main footer<br>1、nav部分四个button独占一行，先看下nav部分具体的代码，再做介绍：</p>
-<pre class=" language-css"><code class="language-css"><span class="token selector">nav</span><span class="token punctuation">{</span>
-    <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
-    <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token function">repeat</span><span class="token punctuation">(</span><span class="token number">4</span>,<span class="token number">1</span>fr<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token property">gap</span><span class="token punctuation">:</span> <span class="token number">10</span>px<span class="token punctuation">;</span>
+<p> 下面是处理内部组件合并的源代码:</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">function</span> initInternalComponent <span class="token punctuation">(</span>vm<span class="token punctuation">:</span> Component<span class="token punctuation">,</span> options<span class="token punctuation">:</span> InternalComponentOptions<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> opts <span class="token operator">=</span> vm<span class="token punctuation">.</span>$options <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>vm<span class="token punctuation">.</span><span class="token keyword">constructor</span><span class="token punctuation">.</span>options<span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// doing this because it's faster than dynamic enumeration.</span>
+  <span class="token keyword">const</span> parentVnode <span class="token operator">=</span> options<span class="token punctuation">.</span>_parentVnode
+  opts<span class="token punctuation">.</span>parent <span class="token operator">=</span> options<span class="token punctuation">.</span>parent
+  opts<span class="token punctuation">.</span>_parentVnode <span class="token operator">=</span> parentVnode
+
+  <span class="token keyword">const</span> vnodeComponentOptions <span class="token operator">=</span> parentVnode<span class="token punctuation">.</span>componentOptions
+  opts<span class="token punctuation">.</span>propsData <span class="token operator">=</span> vnodeComponentOptions<span class="token punctuation">.</span>propsData
+  opts<span class="token punctuation">.</span>_parentListeners <span class="token operator">=</span> vnodeComponentOptions<span class="token punctuation">.</span>listeners
+  opts<span class="token punctuation">.</span>_renderChildren <span class="token operator">=</span> vnodeComponentOptions<span class="token punctuation">.</span>children
+  opts<span class="token punctuation">.</span>_componentTag <span class="token operator">=</span> vnodeComponentOptions<span class="token punctuation">.</span>tag
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>options<span class="token punctuation">.</span>render<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    opts<span class="token punctuation">.</span>render <span class="token operator">=</span> options<span class="token punctuation">.</span>render
+    opts<span class="token punctuation">.</span>staticRenderFns <span class="token operator">=</span> options<span class="token punctuation">.</span>staticRenderFns
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>上面代码的意思是生成一行四列的表格，每列平摊空间，每个格子之间的间距为10px，且nav的宽度会根据屏幕的宽度进行自适应。<br> 2、main部分代码如下：</p>
-<pre class=" language-css"><code class="language-css"><span class="token selector">main</span><span class="token punctuation">{</span>
-    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">450</span>px<span class="token punctuation">;</span>
-    <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
-    <span class="token property">gap</span><span class="token punctuation">:</span> <span class="token number">20</span>px<span class="token punctuation">;</span>
-    <span class="token property">grid-template-areas</span><span class="token punctuation">:</span> <span class="token string">'banner banner banner banner banner box-r-top'</span>
-    <span class="token string">'banner banner banner banner banner box-r-bottom'</span><span class="token punctuation">;</span>
+<p>这个函数的意思：子组件的选项会通过合并方式添加到子组件实例的选项中，以便子组件能够继承和访问父组件的选项。通过这种方式，子组件可以访问父组件的属性、方法、生命周期钩子等。<br>即initInternalComponent 方法主要用于局部注册的组件实例化时的选项合并，mergeOptions 方法用于全局注册和局部注册的组件选项的合并。合并的选项主要为components，directives，methods，computed，props等等，还有子组件的钩子函数等等。合并的结果是父组件的选项优先级高，子组件的选项会被合并到父组件的选项中，形成最终的组件选项对象<br>4. 接下来执行initLifecycle方法，它的作用就是初始化组件实例的生命周期相关属性：例如：<br>初始化 $parent 属性：将父组件实例赋值给 $parent，用于在组件实例中可以访问到其父组件实例。<br>初始化 $root 属性：将根组件实例赋值给 $root，用于在组件实例中可以访问到根组件实例。<br>初始化 $children 属性，初始化 $refs 属性<br>初始化 _watcher 属性<br>初始化 _inactive 属性<br>初始化 _isMounted 属性：将 false 赋值给 _isMounted，表示组件实例当前没有挂载到 DOM 中。<br>初始化 _isDestroyed 属性<br>初始化 _isBeingDestroyed 属性<br>5. initEvents 方法初始化组件实例的事件相关属性和方法。它主要完成以下几个任务：<br>初始化 _events 属性：将空对象赋值给 _events，用于存储组件实例的事件监听器。<br>初始化 _hasHookEvent 属性：将 false 赋值给 _hasHookEvent，表示组件实例当前没有绑定任何钩子函数的事件监听器。<br>将组件构造函数选项中的事件监听器合并到组件实例的 _events 属性中。这样可以在组件实例中通过 $on、$off、$once 等方法进行事件的订阅和取消订阅。<br>将组件实例的父组件的事件监听器合并到组件实例的 _events 属性中。这样可以在组件实例中访问到其父组件的事件监听器。<br>总之，通过执行 initEvents 方法，Vue 组件实例可以进行事件的订阅和触发，从而实现组件间的通信和交互。</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">function</span> initEvents <span class="token punctuation">(</span>vm<span class="token punctuation">:</span> Component<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  vm<span class="token punctuation">.</span>_events <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+  vm<span class="token punctuation">.</span>_hasHookEvent <span class="token operator">=</span> <span class="token keyword">false</span>
+  <span class="token comment" spellcheck="true">// init parent attached events</span>
+  <span class="token keyword">const</span> listeners <span class="token operator">=</span> vm<span class="token punctuation">.</span>$options<span class="token punctuation">.</span>_parentListeners
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>listeners<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">updateComponentListeners</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> listeners<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>上面是main部分，使用grid布局，其中grid-template-areas将main元素分割为两行六列的栅格，并使用命名空间分别占据main的空间，下面是内部的三个元素使用空间的代码：</p>
-<pre class=" language-css"><code class="language-css"><span class="token selector">main li<span class="token pseudo-class">:first-child</span></span><span class="token punctuation">{</span>
-     <span class="token property">grid-area</span><span class="token punctuation">:</span> banner<span class="token punctuation">;</span>
-     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token url">url(./banner.jpg)</span><span class="token punctuation">;</span>
-     <span class="token property">background-size</span><span class="token punctuation">:</span> cover<span class="token punctuation">;</span>
-     <span class="token property">background-position</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token selector">main button</span><span class="token punctuation">{</span>
-     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--light<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<p>6.执行initRender 方法，Vue 组件实例具备了渲染功能所需的基本属性和方法（_vnode，$slots等等）。它为组件的模板渲染提供了必要的支持，使组件能够生成对应的虚拟节点，并进行相应的渲染和更新操作。<br>7.调用beforeCreate钩子函数，注意，beforeCreate 钩子函数在组件实例创建之前执行，此时组件的数据、计算属性、方法等还未初始化，但是可以在这个阶段进行一些初始化配置或执行其他操作。还有就是，<strong>选项合并是关于组件选项对象的处理，而初始化是关于组件实例的内部状态的设置和准备。</strong><br>8.initInjections 方法的主要功能是处理组件实例的注入选项（inject）并将其添加到组件实例的 _provided 属性中。它会在组件实例化的过程中被调用，确保组件实例可以直接访问注入的数据。<br>9.执行 initState 方法，它的作用是初始化组件实例的状态，状态包括组件的数据（data）、计算属性（computed）、观察者（watchers）等，下面给出代码，按这个顺序进行的初始化：</p>
+<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">function</span> initState <span class="token punctuation">(</span>vm<span class="token punctuation">:</span> Component<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  vm<span class="token punctuation">.</span>_watchers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+  <span class="token keyword">const</span> opts <span class="token operator">=</span> vm<span class="token punctuation">.</span>$options
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>opts<span class="token punctuation">.</span>props<span class="token punctuation">)</span> <span class="token function">initProps</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> opts<span class="token punctuation">.</span>props<span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>opts<span class="token punctuation">.</span>methods<span class="token punctuation">)</span> <span class="token function">initMethods</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> opts<span class="token punctuation">.</span>methods<span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>opts<span class="token punctuation">.</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">initData</span><span class="token punctuation">(</span>vm<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token function">observe</span><span class="token punctuation">(</span>vm<span class="token punctuation">.</span>_data <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token keyword">true</span> <span class="token comment" spellcheck="true">/* asRootData */</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>opts<span class="token punctuation">.</span>computed<span class="token punctuation">)</span> <span class="token function">initComputed</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> opts<span class="token punctuation">.</span>computed<span class="token punctuation">)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>opts<span class="token punctuation">.</span>watch <span class="token operator">&amp;&amp;</span> opts<span class="token punctuation">.</span>watch <span class="token operator">!==</span> nativeWatch<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">initWatch</span><span class="token punctuation">(</span>vm<span class="token punctuation">,</span> opts<span class="token punctuation">.</span>watch<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>上面的grid-area是用来占用空间的，它的值填写grid-template-areas的某个值，比如写banner就会占据main的所有命名空间名称是banner的位置。</p>
+<p>10.initProvide方法，用于初始化组件的Provide选项，其允许一个组件向其所有的子组件提供数据或者方法，这样子组件就可以通过inject来访问这些数据和方法。<br>11..调用created钩子函数.组件实例刚好被创建然后立即调用该方法，表明此时组件的数据观测 和事件机制都已经初始化完成。<br>12.模板渲染：在 created 钩子函数之后，Vue.js 将根据组件的虚拟 DOM 结构开始渲染组件的模板。这个过程涉及以下步骤：<br>将组件的虚拟 DOM 与实际的 DOM 进行比对，找出需要更新的部分。<br>将需要更新的部分进行 DOM 操作，实现视图的更新。<br>13.调用beforeMount钩子函数<br>14.模板挂载：在 beforeMount 钩子函数之后，Vue.js 开始将组件的虚拟 DOM 渲染到实际的 DOM 中。这个过程包括以下步骤：<br>将组件的虚拟 DOM 插入到实际 DOM 中的指定位置。<br>执行实际的 DOM 操作，如添加、修改或删除 DOM 元素。</p>
 
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/Grid/" class="">
-              Grid
+            <a href="/tags/Vue/" class="">
+              Vue
             </a>
           
-            <a href="/tags/%E7%BD%91%E7%AB%99%E5%B8%83%E5%B1%80/" class="">
-              网站布局
+            <a href="/tags/%E6%A1%86%E6%9E%B6%E5%8E%9F%E7%90%86/" class="">
+              框架原理
             </a>
           
         </div>
@@ -537,7 +626,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2023/06/17/CSS Grid布局的使用/" target="_blank" title="Grid布局">https://github.com/2023/06/17/CSS Grid布局的使用/</a>
+    <a href="/2023/06/27/Vue的初始化过程都做了什么？/" target="_blank" title="Vue的初始化过程都做了什么？">https://github.com/2023/06/27/Vue的初始化过程都做了什么？/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -555,41 +644,21 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-    </div>
-    <a href="/2023/06/19/Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E3%80%81%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E9%AB%98%E5%86%85%E8%81%9A%E5%92%8C%E4%BD%8E%E8%80%A6%E5%90%88%E7%9B%B8%E5%85%B3/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">组件化，模块化，高内聚和低耦合</div>
-      </div>
-      
-      <!-- <div class="content">
-        组件化
-下面是我看了相关的文章与解答总结出来的自己的看法：组件化：对于Vue中中的组件化来说就是整合HTML css j
-      </div> -->
-    </a>
-  </div>
-
 
 
   
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" class="lazyload placeholder" data-srcset="https://pic1.zhimg.com/80/v2-03a22891ccba9bccf6424dfd7cbf4be7_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2023/06/16/Vue%E7%9A%84%E4%B8%89%E7%A7%8D%E4%BC%A0%E5%80%BC%E6%96%B9%E5%BC%8F%E4%BB%8B%E7%BB%8D/" class="post-nav-link">
+    <a href="/2023/06/26/TS%E5%88%A4%E6%96%AD%E4%B8%80%E4%B8%AA%E5%80%BC%E6%98%AF%E5%90%A6%E4%B8%BA%E6%95%B0%E7%BB%84%E7%B1%BB%E5%9E%8B/" class="post-nav-link">
       <div class="title">
         Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">Vue组件通讯</div>
+        <div class="title-text">TS判断一个值是否为数组类型</div>
       </div>
       <!-- <div class="content">
-        Vue组件的三种常用的传值方式在日常工作中是用的非常多的，非常重要！
-在进行下面的介绍之前，首先要搞清楚什么是父组件，子
+        TS判断一个值是否为数组类型instanceof 用于检查对象是否属于特定类或构造函数的实例，返回的是一个布尔值。con
       </div> -->
     </a>
   </div>
@@ -904,7 +973,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS-Grid%E5%B8%83%E5%B1%80%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">CSS Grid布局的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-text">具体的使用</span></a></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Vue%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96%E8%BF%87%E7%A8%8B%E9%83%BD%E5%81%9A%E4%BA%86%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">Vue的初始化过程都做了什么？</span></a></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
