@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>组件化，模块化，高内聚和低耦合 | Boke</title>
+  <title>Javascript严格模式以及this指向 | Boke</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -417,21 +417,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp')">
+  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/80/v2-5f7cb7e900b9dcf5354c3d4d2c5cc3c2_1440w.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        组件化，模块化，高内聚和低耦合
+        Javascript严格模式以及this指向
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2023-06-19 |
+          <i class="fas fa-calendar"></i> Published in：2023-07-14 |
         </span>
       
 
@@ -439,8 +439,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> category：
           
-            <a href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="post-detail-header_category">
-              计算机基础
+            <a href="/categories/Typescript/" class="post-detail-header_category">
+              Typescript
             </a>
           
         </span>
@@ -449,11 +449,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 1.2k |
+            <i class="fas fa-file-text-o"></i> Words: 360 |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 3min |
+            <i class="fas fa-clock"></i> Reading time: 1min |
           </span>
   
           
@@ -480,25 +480,39 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h2 id="组件化"><a href="#组件化" class="headerlink" title="组件化"></a>组件化</h2><blockquote>
-<p>下面是我看了相关的文章与解答总结出来的自己的看法：<br>组件化：对于Vue中中的组件化来说就是整合HTML css js在一个文件中，拥有特定的基础功能<br>我认为组件化开发的好处主要是：<br>1、增加程序的可维护性；<br>2、代码的复用性；<br>3、拆分成单个组件使得每个组件拥有独立的状态和数据，避免了全局变量污染。<br>4、有利于提升渲染性能，实现局部刷新</p>
+        <blockquote>
+<p>看下面代码的输出</p>
 </blockquote>
-<p>  对于第一点增加程序的可维护性，尤其当开发大型应用的时候，程序中有大量的变量以及函数，如果不采用组件化的开发，当某个数据发生改变时，就要更新整个页面的内容，浪费的不必要的性能，而且在变量命名的时候也会令人有些恼头，容易造成命名冲突等问题，当项目越来越大的时候，容易出现bug，维护性相对较差。<br>对于第二点来说，当这个项目中很多页面都需要用到相同的组件的时候，如果不采用组件化，那只能重写，造成代码冗余，降低开发效率。<br>对于第三点和第四点来说，Vue的每个组件都拥有独立的数据和状态，是互不干扰的，每个组件是一个watcher，当这个组件中的数据更新的时候，只需重新渲染这一个组件的区域，提升了渲染性能，做到了局部刷新。</p>
-<h2 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h2><blockquote>
-<p>模块化，在前端这边可以单独对css，js等进行单独封装成单个文件，具有某个特定的功能。比如我们项目中的utils工具文件等等<br>模块化的好处：<br>1、方便代码的复用、可读性，减少代码冗余度，提高开发效率，模块化使得代码结构更清晰和模块间的关系更明确，代码更易读、易理解。方便代码的维护和交接。<br>2、可维护性：将大文件拆解成小文件，增加可读性，每个模块可拥有独特的功能，当某个功能出现了问题，可以统一得到解决，也方便找到问题所在位置。</p>
-</blockquote>
-<h2 id="高内聚与低耦合"><a href="#高内聚与低耦合" class="headerlink" title="高内聚与低耦合"></a>高内聚与低耦合</h2><blockquote>
-<p>我理解的高内聚的定义是：组件或模块内部的元素（例如函数、类、方法）彼此关联紧密，<strong>共同完成一个明确的最终目标（功能）</strong>。高内聚意味着组件内的元素具有相似的功能、目的或责任，相关的代码被组织在一起，更容易定位和修改。<br>低耦合：彼此之间相对独立，相互之间的影响较小，<strong>每个组件或者模块单独完成最终目标中的一个小目标（功能）</strong>，且修改一个组件不会对其他组件造成太大的影响，可扩展性与灵活性好。</p>
-</blockquote>
-<p>为了更好的理解，我拿笔记本电脑来举个简单的例子，一个笔记本电脑的实现就等同于一个最终功能–供人使用，它需要硬件和软件来支撑这个最终功能，在这高内聚就体现为电脑的一个个零件，网卡、声卡、显卡、CPU等，它们分别实现某个特定的小功能（专精），当你的网卡坏了，你上不了网了，你第一时间会想到的就是网卡相关的部件以及关联的软件配置是否出现故障，这就体现了上面提到的高内聚更容易定位故障产生的位置，这就是高内聚。<br>但是呢单独一个零件又不能发挥什么作用，这些零件只是具有某个单独的功能，需要各个零件之间的合作与配合，才能组成一个完整的笔记本，才能拥有完整的功能，假如某一天你觉得CPU的性能不太好了，你想升级一下，那你只需要动CPU零件，其他零件受到的影响很小，这就是低耦合。<br>总之，代码的高内聚就是相关功能的代码组合在一起，实现某个特定的小功能，各个小功能需要关联起来才能实现整个大功能。<br>代码的低耦合就是某个特定的小功能的修改与变更对其他模块影响很小，方便针对某个单独的功能进行维护与更新。</p>
+<pre class=" language-javascript"><code class="language-javascript"><span class="token string">"use strict"</span><span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span>info<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>info<span class="token punctuation">,</span><span class="token string">'开启严格模式'</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+test<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token string">'使用call解决严格模式this指向报错问题'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> obj  <span class="token operator">=</span> <span class="token punctuation">{</span>
+    fn1 <span class="token punctuation">:</span> <span class="token punctuation">(</span>info<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>info<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fn2 <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>info<span class="token punctuation">)</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+obj<span class="token punctuation">.</span><span class="token function">fn1</span><span class="token punctuation">(</span><span class="token string">'obj直接调用fn1'</span><span class="token punctuation">)</span>
+obj<span class="token punctuation">.</span><span class="token function">fn2</span><span class="token punctuation">(</span><span class="token string">'obj直接调用fn2'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">obj<span class="token punctuation">.</span>fn2</span><span class="token punctuation">(</span><span class="token string">'使用new运算符，将fn2看为类'</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> y <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">obj<span class="token punctuation">.</span>fn1</span><span class="token punctuation">(</span><span class="token string">'使用new运算符，将fn1看为类'</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span>
+
+
+</code></pre>
+<p>在上面的代码中，obj对象包含两个方法fn1和fn2，fn1是一个箭头函数，而fn2使用普通函数的形式定义。</p>
+<p>对于箭头函数，它没有自己的this值，它会捕获上下文中的this，因此fn1中的this指向的是全局对象window（当开启严格模式时，指向的是undefined）。<br>对于普通函数，它的this值是在运行时动态绑定的。因此，当我们调用obj.fn2()时，输出结果是obj，因为是obj调用的这个函数。</p>
+<p>对于const x = new obj.fn2()，因为fn2是一个普通函数，new运算符可以正确的创建实例，并且this值指向新创建的实例对象（即是一个包含fn2方法的对象）；<br>对于const y = new obj.fn1()，因为fn1是一个箭头函数，它没有自己的构造函数，也没有自己的this值，素以在使用new运算符创建实例会报错。运行结果如下图所示：<br><img src="/img/strict.png" class="lazyload placeholder" data-srcset="/img/strict.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="运行结果"></p>
 
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/" class="">
-              计算机基础
+            <a href="/tags/Typescript/" class="">
+              Typescript
             </a>
           
         </div>
@@ -512,7 +526,7 @@
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2023/06/19/Vue组件化、模块化与高内聚和低耦合相关/" target="_blank" title="组件化，模块化，高内聚和低耦合">https://github.com/2023/06/19/Vue组件化、模块化与高内聚和低耦合相关/</a>
+    <a href="/2023/07/14/Javascript严格模式以及this指向/" target="_blank" title="Javascript严格模式以及this指向">https://github.com/2023/07/14/Javascript严格模式以及this指向/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -530,42 +544,22 @@
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-    </div>
-    <a href="/2023/06/20/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">数据结构八大排序之冒泡排序算法</div>
-      </div>
-      
-      <!-- <div class="content">
-        数据结构八大排序之冒泡排序算法
-需求：用户传入数字类型的数组，并传入排序规则（升序还是降序），实现数组排列，要求使用ty
-      </div> -->
-    </a>
-  </div>
-
 
 
   
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2023/06/17/CSS%20Grid%E5%B8%83%E5%B1%80%E7%9A%84%E4%BD%BF%E7%94%A8/" class="post-nav-link">
+    <a href="/2023/07/01/%E4%BB%8A%E6%97%A5%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%89%8B%E5%86%99Promise%E5%8F%8A%E5%85%B6API/" class="post-nav-link">
       <div class="title">
         Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">Grid布局</div>
+        <div class="title-text">手写Promise及其API</div>
       </div>
       <!-- <div class="content">
-        CSS Grid布局的使用介绍之前，先了解一下该门技术的优缺点，看自己是否值得学习，优缺点如下：
-
-优点：CSS Gri
+        手写Promise及其APIPromise构造函数// promise的构造函数，同步执行
+// executor===
       </div> -->
     </a>
   </div>
@@ -880,7 +874,7 @@
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E5%8C%96"><span class="toc-text">组件化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E5%8C%96"><span class="toc-text">模块化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E5%86%85%E8%81%9A%E4%B8%8E%E4%BD%8E%E8%80%A6%E5%90%88"><span class="toc-text">高内聚与低耦合</span></a></li></ol> -->
+        <!--  -->
         <div class="toc"></div>
       </div>
     </div>

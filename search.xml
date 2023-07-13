@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Javascript严格模式以及this指向</title>
+      <link href="/2023/07/14/Javascript%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%BB%A5%E5%8F%8Athis%E6%8C%87%E5%90%91/"/>
+      <url>/2023/07/14/Javascript%E4%B8%A5%E6%A0%BC%E6%A8%A1%E5%BC%8F%E4%BB%A5%E5%8F%8Athis%E6%8C%87%E5%90%91/</url>
+      
+        <content type="html"><![CDATA[<blockquote><p>看下面代码的输出</p></blockquote><pre class=" language-javascript"><code class="language-javascript"><span class="token string">"use strict"</span><span class="token punctuation">;</span><span class="token keyword">function</span> <span class="token function">test</span><span class="token punctuation">(</span>info<span class="token operator">=</span><span class="token string">''</span><span class="token punctuation">)</span><span class="token punctuation">{</span>    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>info<span class="token punctuation">,</span><span class="token string">'开启严格模式'</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span>test<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span><span class="token string">'使用call解决严格模式this指向报错问题'</span><span class="token punctuation">)</span><span class="token keyword">const</span> obj  <span class="token operator">=</span> <span class="token punctuation">{</span>    fn1 <span class="token punctuation">:</span> <span class="token punctuation">(</span>info<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>info<span class="token punctuation">)</span><span class="token punctuation">,</span>    fn2 <span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span>info<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">}</span>obj<span class="token punctuation">.</span><span class="token function">fn1</span><span class="token punctuation">(</span><span class="token string">'obj直接调用fn1'</span><span class="token punctuation">)</span>obj<span class="token punctuation">.</span><span class="token function">fn2</span><span class="token punctuation">(</span><span class="token string">'obj直接调用fn2'</span><span class="token punctuation">)</span><span class="token keyword">const</span> x <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">obj<span class="token punctuation">.</span>fn2</span><span class="token punctuation">(</span><span class="token string">'使用new运算符，将fn2看为类'</span><span class="token punctuation">)</span><span class="token keyword">const</span> y <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">obj<span class="token punctuation">.</span>fn1</span><span class="token punctuation">(</span><span class="token string">'使用new运算符，将fn1看为类'</span><span class="token punctuation">)</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span></code></pre><p>在上面的代码中，obj对象包含两个方法fn1和fn2，fn1是一个箭头函数，而fn2使用普通函数的形式定义。</p><p>对于箭头函数，它没有自己的this值，它会捕获上下文中的this，因此fn1中的this指向的是全局对象window（当开启严格模式时，指向的是undefined）。<br>对于普通函数，它的this值是在运行时动态绑定的。因此，当我们调用obj.fn2()时，输出结果是obj，因为是obj调用的这个函数。</p><p>对于const x = new obj.fn2()，因为fn2是一个普通函数，new运算符可以正确的创建实例，并且this值指向新创建的实例对象（即是一个包含fn2方法的对象）；<br>对于const y = new obj.fn1()，因为fn1是一个箭头函数，它没有自己的构造函数，也没有自己的this值，素以在使用new运算符创建实例会报错。运行结果如下图所示：<br><img src="/img/strict.png" class="lazyload placeholder" data-srcset="/img/strict.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="运行结果"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Typescript </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Typescript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>手写Promise及其API</title>
       <link href="/2023/07/01/%E4%BB%8A%E6%97%A5%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%89%8B%E5%86%99Promise%E5%8F%8A%E5%85%B6API/"/>
       <url>/2023/07/01/%E4%BB%8A%E6%97%A5%E7%BB%83%E4%B9%A0%EF%BC%9A%E6%89%8B%E5%86%99Promise%E5%8F%8A%E5%85%B6API/</url>
