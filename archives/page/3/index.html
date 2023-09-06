@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>Javascript执行上下文与闭包 | Boke</title>
+  <title>archives | Boke</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -403,830 +403,122 @@
     
 </header>
         <!-- 内容区域 -->
-        
- <!-- prismjs 代码高亮 -->
- 
-
-
-<div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -1;"></div>
-
-
-  <!-- 文章详情页顶部图片和标题 -->
-
-
-
-
-<div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic2.zhimg.com/80/v2-63bbdb5b76b8d349ad35ff4281efbd37_1440w.webp')">
-  <div class="post-detail-header-mask"></div>
-  <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
-  
-  <div class="post-detail-header_info-box">
-    <div class="title-box">
-      <span class="title">
-        Javascript执行上下文与闭包
-      </span>
-    </div>
-    
-    
-      
-        <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2023-06-22 |
-        </span>
-      
-
-      
-        <span class="post-detail-header_categories">
-          <i class="iconfont iconbookmark1"></i> category：
-          
-            <a href="/categories/Typescript/" class="post-detail-header_category">
-              Typescript
-            </a>
-          
-        </span>
-      
-
-      
-        <div class="post-detail-header_wordcount">
-          <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 1.7k |
-          </span>
-  
-          <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 6min |
-          </span>
-  
-          
-            <span class="reading">
-              <i class="fas fa-eye"></i> reading：<span id="busuanzi_value_page_pv"></span>
-            </span>
-          
-        </div>
-      
-    
+        <div class="bg-dark-floor" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"></div>
+<div class="bg-light-floor-archive" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -3;"></div>
+<div class="archive-header" style="background-image:url('https://pic1.zhimg.com/80/v2-1414b3a4b205e19060db18a20d08723a_1440w.jpg?source=1940ef5c')">
+  <div class="archive-header-title">
+    archive
   </div>
+  <div class="archive-header-desc">
   
-  
-    <script src="/js/bubble/bubble.js"></script>
-  
-</div>
-
-
-
-
-
-<div class="post-detail-content post-row" 
-  style="padding-top: 0px;">
-  <div class="main-content">
-    <article class="post post-detail">
-      <div class="post-content">
-        <h2 id="Javascript执行上下文与闭包"><a href="#Javascript执行上下文与闭包" class="headerlink" title="Javascript执行上下文与闭包"></a>Javascript执行上下文与闭包</h2><h3 id="执行上下文"><a href="#执行上下文" class="headerlink" title="执行上下文"></a>执行上下文</h3><p>说闭包之前先解释一下JavaScript的执行上下文，即作用域。</p>
-<ol>
-<li>全局作用域:默认环境，当我们第一次启动程序时，默认创建的全局作用域。</li>
-<li>函数作用域:当执行流进入函数体时就会创建一个本地函数执行上下文，并压入栈中。</li>
-<li>块级作用域:这是es6中新出的作用域，比如for循环、while循环、{}等都属于是块级作用域。</li>
-</ol>
-<h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p> 知道了作用域之后，我们来看一下闭包的定义、作用以及使用场景：</p>
-<blockquote>
-<p><strong>闭包定义</strong>：指的是那些引用了另一个函数作用域中变量的<strong>函数</strong>，通常是在嵌套函数中实现的。———-JS红宝书上面的解释</p>
-</blockquote>
-<blockquote>
-<p><strong>个人理解</strong>：该作用域存在对上级作用域当中变量的引用即形成闭包。上级作用域内的变量，因为被下级作用域内引用，而没有被释放。就导致上级作用域内的变量，等到下级作用域执行完以后才正常得到释放（也就是说当解除了对该闭包的所有引用的时候，这个闭包才会被JS的垃圾回收机制回收）。</p>
-</blockquote>
-<p>下面我先给出一个看似闭包但不是闭包的例子，以助后面更好的认识以及理解闭包：</p>
-<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">function</span> <span class="token function">outerFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">:</span><span class="token keyword">void</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> outerVariable<span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-    <span class="token keyword">function</span> <span class="token function">innerFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">void</span> <span class="token punctuation">{</span>
-      <span class="token keyword">let</span> innerVariable<span class="token punctuation">:</span> <span class="token keyword">number</span> <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>outerVariable <span class="token operator">+</span> innerVariable<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token function">innerFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-  <span class="token function">outerFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">outerFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token function">outerFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p> 在这个例子中，我们定义了一个外部函数 outerFunction，其中包含一个内部函数 innerFunction。在 outerFunction 中，我们直接调用了 innerFunction，而不是将其作为返回值或赋值给变量。<br>尽管 innerFunction 访问了 outerFunction 中的变量 outerVariable，但由于 innerFunction 在 outerFunction 内部被直接调用，而不是在外部作用域外被调用，它不满足闭包的条件。<br>在这个例子中，innerFunction 没有形成闭包，因为它没有在外部函数作用域外被调用，也没有捕获外部函数作用域的引用。<br>看一下运行效果：<br><img src="/img/context1.png" class="lazyload placeholder" data-srcset="/img/context1.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="运行结果(伪闭包)"></p>
-<p>可以看到，并没有实现闭包的效果，原因就是三次调用outerFunction函数，之间没有任何关系，每次执行完之后都会将该函数内部的变量回收。<br>下面我们改造一下这个函数，让其变成闭包：</p>
-<pre class=" language-typescript"><code class="language-typescript"><span class="token number">1</span> <span class="token keyword">function</span> <span class="token function">outerFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">:</span><span class="token keyword">Function</span> <span class="token punctuation">{</span>
-<span class="token number">2</span>    <span class="token keyword">let</span> outerVariable <span class="token punctuation">:</span><span class="token keyword">number</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
-<span class="token number">3</span>    <span class="token keyword">function</span> <span class="token function">innerFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">:</span><span class="token keyword">number</span><span class="token punctuation">{</span>
-<span class="token number">4</span>      <span class="token keyword">let</span> innerVariable <span class="token punctuation">:</span><span class="token keyword">number</span> <span class="token operator">=</span> <span class="token number">20</span><span class="token punctuation">;</span>
-<span class="token number">5</span>       outerVariable <span class="token operator">++</span>
-<span class="token number">6</span>      <span class="token keyword">return</span> <span class="token punctuation">(</span>outerVariable <span class="token operator">+</span> innerVariable<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">7</span>    <span class="token punctuation">}</span>
-<span class="token number">8</span>    <span class="token keyword">return</span> innerFunction<span class="token punctuation">;</span>
-<span class="token number">9</span> <span class="token punctuation">}</span>
-<span class="token number">10</span> <span class="token keyword">const</span> closure <span class="token punctuation">:</span><span class="token keyword">Function</span> <span class="token operator">=</span> <span class="token function">outerFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token number">11</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">closure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token number">12</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">closure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token number">13</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">closure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-</code></pre>
-<p>先看一下执行的结果：<br><img src="/img/context2.png" class="lazyload placeholder" data-srcset="/img/context2.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="修改为闭包之后的执行结果"></p>
-<p>修改之处在于，我们将 innerFunction 返回并赋值给 closure 变量，并在外部调用 closure()。<br>现在，closure 变量中保存的是 innerFunction，它实际上是一个闭包。在调用 closure() 时，innerFunction 可以访问其定义时所在的外部函数 outerFunction 的作用域，即可以访问 outerVariable。这样，我们就创建了一个闭包，使得 innerFunction 在外部函数作用域外仍然能够访问和操作其引用的变量。<br>通过这种方式，我们确保了 innerFunction 在外部函数作用域外被调用时仍然可以访问外部变量，满足了闭包的条件。</p>
-<h3 id="剖析执行过程"><a href="#剖析执行过程" class="headerlink" title="剖析执行过程"></a>剖析执行过程</h3><ul>
-<li>第 1-9行。我们在全局执行上下文中创建了一个新的变量outerFunction，并赋值了一个的函数定义。</li>
-<li>第10行。我们在全局执行上下文中声明了一个名为closure的新变量。</li>
-<li>第11行。我们需要调用outerVariable 函数并将其返回值赋给closure变量。</li>
-<li>第 1-9行。调用函数，创建新的本地执行上下文。</li>
-<li>第2行。在本地执行上下文中，声明一个名为outerVariable 的新变量并赋值为 1;</li>
-<li>第 3-7行。声明一个名为myFunction的新变量，变量在本地执行上下文中声明,变量的内容是为第4-6行所定义。</li>
-<li>第8行。返回innerFunction变量的内容，删除本地执行上下文。变量innerFunction和outerVariable 不再存在。</li>
-<li>第10行。在调用上下文(全局执行上下文)中，outerFunction返回的值赋给了closure，变量closure现在包含一个函数定义内容为outerFunction返回的函数。它不再标记为innerFunction，但它的定义是相同的。这个closure就相当于是闭包的引用，如果该变量一直引用着，则这个闭包会一直存在于内存当中，不会被垃圾回收机制标记为垃圾。</li>
-<li>第11行。查找closure变量，它是一个函数并调用它。它包含前面返回的函数定义，除此之外它还有一个带有变量的闭包</li>
-<li>创建一个新的执行上下文。没有参数，开始执行函数。</li>
-<li>第四行，声明了一个innerVariable变量并赋值20</li>
-<li>第五行，寻找变量outerVariable，在查找当前作用域和上级作用域之前，会先检查一下闭包当中有没有，找到了，然后执行+1操作，然后将其再次存储到闭包当中，待下次使用。</li>
-<li>第六行，返回outerVariable + innerVariable的值，然后销毁当前上下文。</li>
-<li>回到第11行，打印出22.</li>
-<li>接下来就是第12行和第13行就是重复步骤执行第11行代码的执行步骤，实现递增的效果。分别打印出23，24.</li>
-</ul>
-<blockquote>
-<p><strong>闭包的作用</strong>：保护函数的私有变量不受外界干扰；将上级作用域的引用保存下来，实现方法或者属性的私有化；实现模块化</p>
-</blockquote>
-<blockquote>
-<p><strong>闭包的缺点</strong>：使用不当，会造成内存泄漏。</p>
-</blockquote>
-<p>下面是一个使用闭包不当造成内存泄漏的例子：</p>
-<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">function</span> <span class="token function">outerFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">let</span> outerVariable <span class="token operator">=</span> <span class="token string">'1'</span><span class="token punctuation">;</span>
-  <span class="token keyword">function</span> <span class="token function">innerFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> innerVariable <span class="token operator">=</span> <span class="token string">'1'</span><span class="token punctuation">;</span>
-    <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    outerVariable<span class="token operator">++</span>
-    innerVariable<span class="token operator">++</span>
-      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>outerVariable <span class="token operator">+</span> innerVariable<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-  <span class="token function">innerFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-<span class="token function">outerFunction</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>在这个例子中，我们定义了一个外部函数 outerFunction，其中包含一个内部函数 innerFunction。在 innerFunction 中，我们使用 setInterval 创建了一个定时器，每秒钟输出 outerVariable 和 innerVariable 的值。<br>由于定时器的回调函数形成了闭包，它可以访问 outerVariable 和 innerVariable，即使 innerFunction 已经执行完毕。这导致闭包中引用的变量无法被垃圾回收，因为定时器仍然持有对闭包的引用。<br>如果我们多次调用 outerFunction，每次调用都会创建一个新的定时器，并且每个定时器都会保留对其自己的闭包的引用。这会导致内存泄漏，因为闭包中引用的变量无法被释放。<br>为了避免内存泄漏，要记得清除定时器。<br><img src="/img/context3.png" class="lazyload placeholder" data-srcset="/img/context3.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="执行结果"></p>
-<blockquote>
-<p><strong>闭包的使用场景</strong>：节抖或防流；自执行函数以及回调函数等</p>
-</blockquote>
-
-      </div>
-      <div class="post-tags-categories">
-        
-        <div class="tags">
-          
-            <a href="/tags/Typescript/" class="">
-              Typescript
-            </a>
-          
-        </div>
-        
-      </div>
-      
-        <div class="copyright">
-  <ul class="post-copyright">
-    <li class="post-copyright-author">
-    <strong>author:  </strong>developer.zx</a>
-    </li>
-    <li class="post-copyright-link">
-    <strong>link:  </strong>
-    <a href="/2023/06/22/Javascript闭包与执行上下文/" target="_blank" title="Javascript执行上下文与闭包">https://github.com/2023/06/22/Javascript闭包与执行上下文/</a>
-    </li>
-    <li class="post-copyright-license">
-      <strong>Copyright notice:   </strong>
-      All articles on this website, unless otherwise stated, adopt <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">CC BY-NC-ND 4.0</a>
-      reprint policy. If reproduced, please indicate source!
-    </li>
-  </ul>
-<div>
-      
-    </article>
-    <!-- 上一篇文章和下一篇文章 -->
-    
-      <!-- 文章详情页的上一页和下一页 -->
-<div class="post-nav">
-
-
-
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-e22aaad20d20634f506f57fff0fcbc17_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-e22aaad20d20634f506f57fff0fcbc17_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-    </div>
-    <a href="/2023/06/23/%E5%9D%97%E7%BA%A7%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%B8%8A%E4%B8%8B%E6%96%87BFC%EF%BC%88Block%20Formatting%20Context%EF%BC%89/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">块级格式化上下文BFC（Block Formatting Context）</div>
-      </div>
-      
-      <!-- <div class="content">
-        前置知识在介绍BFC之前，先了解一下文档流相关的内容。我们常说的文档流包括定位流、浮动流、普通流三种。
-绝对定位如果元素
-      </div> -->
-    </a>
-  </div>
-
-
-
-  
-  <div class="post-nav-next post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-e434e3a2888fb4efb1844845b8791d1f_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
-    </div>
-    <a href="/2023/06/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%85%AB%E5%A4%A7%E6%8E%92%E5%BA%8F%E4%B9%8B%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" class="post-nav-link">
-      <div class="title">
-        Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">数据结构八大排序之快速排序算法</div>
-      </div>
-      <!-- <div class="content">
-        数据结构八大排序之快速排序算法
-算法思想如下:1、选择基准元素：从待排序的数组中选择一个元素作为基准（pivot）。可以
-      </div> -->
-    </a>
-  </div>
-
-</div>
-
-    
-    
-
-    <!-- 打赏 -->
-    
-      <div id="appDonate" class="post-donate">
-  <div id="donate_board" class="donate_bar center" ref="donate">
-    <a id="btn_donate" class="btn_donate" href="javascript:;" title="打赏" @click="showDialogDrawer()"></a>
-  </div>
-  <transition name="fade">
-    <div 
-      class="donate-box-mask"
-      v-cloak 
-      v-show="visible"
-      @click="cancelDialogDrawer()"
-    >
-    </div>
-  </transition>
-  <transition name="bounce">
-    <div class="donate-box" v-cloak v-show="visible">
-      <div class="donate-box_close">
-        <i class="fas fa-times" aria-hidden="true" @click="cancelDialogDrawer" pointer></i>
-      </div>
-      <div class="donate-box_title">
-        <h4>
-          你的赏识是我前进的动力
-        </h4>
-      </div>
-      <div class="donate-box_tab">
-        <div class="Alipay" pointer :class="{'active': tabActive === 'Alipay'}" @click="changeTabActive('Alipay')">
-          支付宝
-        </div>
-        <div class="WeChatpay" pointer :class="{'active': tabActive === 'WeChatpay'}" @click="changeTabActive('WeChatpay')">
-          微信
-        </div>
-      </div>
-      <div class="donate-box_img">
-        <div class="AlipayImg" v-show="tabActive === 'Alipay'">
-          <img src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="支付宝打赏" />
-        </div> 
-        <div class="WeChatpayImg" v-show="tabActive === 'WeChatpay'">
-          <img src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="微信打赏" />
-        </div>
-      </div>
-    </div>
-  </transition>
-</div>
-
-<script>
-  var body = document.body || document.documentElement || window;
-  var vm = new Vue({
-    el: '#appDonate',
-    data: {
-      visible: false,
-      tabActive: 'Alipay',
-      top: 0,
-    },
-    computed: {
-    },
-    mounted() {
-    },
-    methods: {
-      showDialogDrawer() {
-        this.visible = true;
-        // 防止页面滚动，只能让弹框滚动
-        // function getScroll() {
-        //   return {
-        //     left: window.pageXOffset || document.documentElement.scrollLeft || document.body.scrollLeft || 0,
-        //     top: window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
-        //   };
-        // }
-        this.top = $(document).scrollTop() // or getScroll().top
-        // console.log('aa', $('.main-content'));
-        body.style.cssText = 'overflow: hidden;';
-      },
-      cancelDialogDrawer() {
-        this.visible = false;
-        body.removeAttribute('style');
-        $(document).scrollTop(this.top)
-      },
-      changeTabActive(name) {
-        this.tabActive = name;
-      }
-    },
-    created() {}
-  })
-</script>
-    
-
-    <!-- 分享 -->
-    
-      <!-- https://github.com/overtrue/share.js -->
-<!-- 文章详情页的分享 -->
-<div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-
-<script src="/js/shareJs/social-share.min.js"></script>
-</script>
-
-<style>
-  .social-share {
-    margin: 20px 0;
+  <span class="title" id="archive-header-desc"></span>
+  <script>
+  function typedFn() {
+    const el = '#archive-header-desc';
+    const type = 'archive';
+    let desc = '愿你如风，被人温柔以待'
+    var typed = new Typed(el, {
+      strings: [desc],
+      startDelay: 100,
+      typeSpeed: 100,
+      loop: true,
+      backSpeed: 50,
+      showCursor: true
+    });
   }
-</style>
-
-
-    
-    
-    <!-- 评论 -->
-    <!-- 评论 -->
-
-  <div id="myComment">
-    
-      
-<section id="comments" style="padding: 1em;"
-	class="animated bounceInUp">
-	<div id="vcomment" class="comment"></div>
-</section>
-<style>
-	#comments {
-		background: rgba(255,255,255,0.9);
-	}
-	#veditor {
-		background-image: url('https://img.zcool.cn/community/01a253594c71cfa8012193a329a77f.gif');
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: right;
-		background-color: rgba(255, 255, 255, 0);
-		resize: vertical;
-	}
-	#veditor:focus{
-		background-position-y: 200px;
-		transition: all 0.2s ease-in-out 0s;
-	}
-	#vcomment .vcards .vcard .vh .vhead .vtag.vvisitor {
-		background-color: #42b983;
-	}
-	.v[data-class=v] .vbtn:active, .v[data-class=v] .vbtn:hover {
-		color: #42b983;
-		border-color: #42b983;
-	}
-	#vcomment .vcards .vcard .vhead .vsys i {
-		display: none;
-	}
-	/* 底部valine链接 */
-	#vcomment .vpower {
-		display: none;
-	}
-	
-	/* 底下注释是修改 名称和邮箱和网址输入框的样式 */
-	/* #vcomment .vheader {
-		display: flex;
-		justify-content: space-around;
-	}
-	
-	#vcomment .vheader .vnick {
-		width: 31%;
-		border: 2px solid #dedede;
-		padding-left: 10px;
-		padding-right: 10px;
-		border-radius: 5px
-	}
-
-	#vcomment .vheader .vmail {
-		width: 31%;
-		border: 2px solid #dedede;
-		padding-left: 10px;
-		padding-right: 10px;
-		border-radius: 5px
-	}
-
-	#vcomment .vheader .vlink {
-		width: 31%;
-		border: 2px solid #dedede;
-		padding-left: 10px;
-		padding-right: 10px;
-		border-radius: 5px
-	} */
-
-	img.vimg {
-		transition: all 1s;
-		/* 头像旋转时间为 1s */
-	}
-
-	img.vimg:hover {
-		transform: rotate(360deg);
-		-webkit-transform: rotate(360deg);
-		-moz-transform: rotate(360deg);
-		-o-transform: rotate(360deg);
-		-ms-transform: rotate(360deg);
-	}
-
-	#vcomment .vcards .vcard {
-		padding: 15px 20px 0 20px;
-		border-radius: 10px;
-		margin-bottom: 15px;
-		box-shadow: 0 0 4px 1px rgba(0, 0, 0, .12);
-		transition: all .3s
-	}
-
-	#vcomment .vcards .vcard:hover {
-		box-shadow: 0 0 8px 3px rgba(0, 0, 0, .12)
-	}
-
-	#vcomment .vcards .vcard .vh .vcard {
-		border: none;
-		box-shadow: none;
-	}
-</style>
-    
+  typedFn();
+</script>
+  
   </div>
-
-<!-- comment script in themes\hexo-theme-bamboo\layout\_partial\scripts\index.ejs -->
-
-
-  </div>
-
-  <!-- 目录 -->
-  <aside id='l_side'>
-  
-    
-      <section class="widget side_blogger">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img src='https://pic2.zhimg.com/80/v2-42b72d5ebee4b8d8aa70d9687effe87b_1440w.webp'/>
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-          <h2>炸药包一号</h2>
-        
-        
-          <p>赵旭</p>
-
-        
-        
-          <p><span id="jinrishici-sentence">Boke</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="https://zzhaoxu.github.io"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://zzhaoxu.github.io"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://zzhaoxu.github.io"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://zzhaoxu.github.io"
-              class="social fab fa-qq flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
-  </div>
-</section>
-
-    
-  
-  
-  
-
-  <div class="layout_sticky">    
-    
-      
-<section class="widget side_toc">
-  
-  <header>
-    
-      <i style="color: " class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name' style="color: ">本文目录</span>
-    
-  </header>
-
-
-  <div class='content'>
-    <div class="toc-main">
-      <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Javascript%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E4%B8%8E%E9%97%AD%E5%8C%85"><span class="toc-text">Javascript执行上下文与闭包</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E4%B8%8A%E4%B8%8B%E6%96%87"><span class="toc-text">执行上下文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%AD%E5%8C%85"><span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%89%96%E6%9E%90%E6%89%A7%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="toc-text">剖析执行过程</span></a></li></ol></li></ol> -->
-        <div class="toc"></div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- 手机端目录按钮 -->
-<div id="toc-mobile-btn">
-  <i class="fas fa-list-ul" aria-hidden="true"></i>
+  <div class="mask-box"></div>
 </div>
 
+<div class="archive-video">
+  <video class="full-video" autoplay loop muted>
+      <source style="width: 100%;height: 100vh;" src="/">
+  </video>
+  <div class="video-header-title">
+    archive
+  </div>
+  <div class="video-header-desc">
+  
+      <span class="title" id="archive-video-header-desc"></span>
+      <script>
+  function typedFn() {
+    const el = '#archive-video-header-desc';
+    const type = 'archive';
+    let desc = '愿你如风，被人温柔以待'
+    var typed = new Typed(el, {
+      strings: [desc],
+      startDelay: 100,
+      typeSpeed: 100,
+      loop: true,
+      backSpeed: 50,
+      showCursor: true
+    });
+  }
+  typedFn();
+</script>
       
-  <section class="widget side_recent_post">
-    
-  <header>
-    
-      <a style="color: " href='/tags/'><i class="fas fa-book fa-fw" aria-hidden="true"></i><span class='name'>最新文章</span></a>
-    
-  </header>
+  </div>
+  <div class="mask-box"></div>
+</div>
+
+<!-- hash算法 -->
 
 
-    <div class='content'>
-      
-      <!-- hash算法 -->
-      
-      <div class="aside-list">
+<div class="archive-main">
+  <section class="archive">
+    <div class="archive-content">
+      <ul class="post-archive">
         
-          <div class="aside-list-item">
+        
+          
             
+            <div class="year" data-aos="zoom-in-up">
+                <div class="bullet"></div>
+                <a href="/archives/2022">2022</a>
+            </div>
+          
+          <li class="post-item" data-aos="fade-left">
             
-            
-
             <div class="post-img-box">
-              <a href="/2023/09/06/LeetCode%E5%88%B7%E9%A2%98----2023.09.06/" class="post-img " style="background-size: cover; 
+              <a href="/2022/02/06/Vue%E7%9A%84%E4%B8%89%E7%A7%8D%E4%BC%A0%E5%80%BC%E6%96%B9%E5%BC%8F%E4%BB%8B%E7%BB%8D/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-e22aaad20d20634f506f57fff0fcbc17_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-e22aaad20d20634f506f57fff0fcbc17_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+                <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
             </div>
             <div class="post-date-title">
               <div>
-                
-                  <span class="post-date">09-06</span>
-                
+                <span class="post-date">02-06</span>
               </div>
-              <a class="post-title" href="/2023/09/06/LeetCode%E5%88%B7%E9%A2%98----2023.09.06/">LeetCode刷题-20230906</a>
+              <a class="post-title" href="/2022/02/06/Vue%E7%9A%84%E4%B8%89%E7%A7%8D%E4%BC%A0%E5%80%BC%E6%96%B9%E5%BC%8F%E4%BB%8B%E7%BB%8D/">Vue组件通讯</a>
             </div>
-          </div>
+          </li>
         
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2023/08/14/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%863/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">08-14</span>
-                
-              </div>
-              <a class="post-title" href="/2023/08/14/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%863/">JS基础知识篇三</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2023/08/13/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%AF%872/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">08-13</span>
-                
-              </div>
-              <a class="post-title" href="/2023/08/13/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%AF%872/">JS基础知识篇二</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2023/08/12/JS%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%AF%871/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" class="lazyload placeholder" data-srcset="https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">08-12</span>
-                
-              </div>
-              <a class="post-title" href="/2023/08/12/JS%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%AF%871/">JS基础知识篇一</a>
-            </div>
-          </div>
-        
-      </div>
+      </ul>
     </div>
   </section>
-
+  <div class="w-70">
+    
+  <!-- <nav class="page-nav">
+    <a class="extend prev" rel="prev" href="/archives/page/2/">Prev</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
+  </nav> -->
+  <div class="page-nav">
+    
+      <a href="/archives/page/2/"
+         class="page-nav-pre">
+         <i class="fas fa-angle-left"></i><span class="ml-5">Prev</span>
+      </a>
+    
+    <div class="page-info">
+        <div class="page-info-text">3 / 3</div>
+    </div>
     
   </div>
-</aside>
 
-  <!-- 图片放大 Wrap images with fancybox support -->
-  <script src="/js/wrapImage.js"></script>
+  </div>
 </div>
-
-<!-- 文章详情页背景图 -->
-<div id="appBgSwiper" style="position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: -2;"
-	:style="{'background-color': bgColor ? bgColor : 'transparent'}">
-	<transition-group tag="ul" :name="names">
-		<li v-for='(image,index) in img' :key='index' v-show="index === mark" class="bg-swiper-box">
-			<img :src="image" class="bg-swiper-img no-lazy">
-		</li>
-	</transition-group>
-</div>
-<script>
-	var vm = new Vue({
-		el: '#appBgSwiper',
-		data: {
-			names: '' || 'fade' || 'fade', // translate-fade fade
-			mark: 0,
-			img: [],
-			bgColor: '',
-			time: null
-		},
-		methods: {   //添加方法
-			change(i, m) {
-				if (i > m) {
-					// this.names = 'fade';
-				} else if (i < m) {
-					// this.names = 'fade';
-				} else {
-					return;
-				}
-				this.mark = i;
-			},
-			prev() {
-				// this.names = 'fade';
-				this.mark--;
-				if (this.mark === -1) {
-					this.mark = 3;
-					return
-				}
-			},
-			next() {
-				// this.names = 'fade';
-				this.mark++;
-				if (this.mark === this.img.length) {
-					this.mark = 0;
-					return
-				}
-			},
-			autoPlay() {
-				// this.names = 'fade';
-				this.mark++;
-				if (this.mark === this.img.length) {
-					this.mark = 0;
-					return
-				}
-			},
-			play() {
-				let bgImgDelay = '' || '180000'
-				let delay = parseInt(bgImgDelay) || 180000;
-				this.time = setInterval(this.autoPlay, delay);
-			},
-			enter() {
-				clearInterval(this.time);
-			},
-			leave() {
-				this.play();
-			}
-		},
-		created() {
-			this.play()
-		},
-		beforeDestroy() {
-			clearInterval(this.time);
-		},
-		mounted() {
-			let prop = '' || '';
-			let isImg = prop.includes('.bmp') || prop.includes('.jpg') || prop.includes('.png') || prop.includes('.tif') || prop.includes('.gif') || prop.includes('.pcx') || prop.includes('.tga') || prop.includes('.exif') || prop.includes('.fpx') || prop.includes('.psd') || prop.includes('.cdr') || prop.includes('.pcd') || prop.includes('.dxf') || prop.includes('.ufo') || prop.includes('.eps') || prop.includes('.ai') || prop.includes('.raw') || prop.includes('.WMF') || prop.includes('.webp') || prop.includes('.jpeg') || prop.includes('http://') || prop.includes('https://')
-			if (isImg) {
-				let img = prop.split(',');
-				let configRoot = '/'
-				let arrImg = [];
-				img.forEach(el => {
-					var Expression = /http(s)?:\/\/([\w-]+\.)+[\w-]+(\/[\w- .\/?%&=]*)?/;
-					var objExp = new RegExp(Expression);
-
-					if (objExp.test(el)) {
-						// http or https
-						arrImg.push(el);
-					} else {
-						// 非http or https开头
-						// 本地文件
-						let firstStr = el.charAt(0);
-						if (firstStr == '/') {
-							el = el.substr(1); // 删除第一个字符 '/',因为 configRoot最后一个字符为 /
-						}
-						el = configRoot + el;
-						arrImg.push(el);
-					}
-				})
-				this.img = arrImg;
-			} else {
-				this.bgColor = prop;
-			}
-		}
-	})
-</script>
-
-<style>
-	.bg-swiper-box {
-		position: absolute;
-		display: block;
-		width: 100%;
-		height: 100%;
-	}
-
-	.bg-swiper-img {
-		object-fit: cover;
-		width: 100%;
-		height: 100%;
-	}
-</style>
-
-
-
-
-  <script>
-  function loadMermaid() {
-    if (document.getElementsByClassName('mermaid').length) {
-      if (window.mermaidJsLoad) mermaid.init()
-      else {
-        loadScript('https://unpkg.com/mermaid/dist/mermaid.min.js').then(() => {
-          window.mermaidJsLoad = true
-          mermaid.initialize({
-            theme: 'default',
-          })
-          if ('true') {
-            mermaid.init();
-          }
-        })
-      }
-    }
-  };
-  document.addEventListener("DOMContentLoaded", function () {
-    loadMermaid();
-  })
-
-  document.addEventListener('pjax:complete', function () {
-    loadMermaid();
-  })
-  
-</script>
-
 
       </main>
     </div>
