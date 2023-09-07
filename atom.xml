@@ -6,7 +6,7 @@
   <link href="https://github.com/atom.xml" rel="self"/>
   
   <link href="https://github.com/"/>
-  <updated>2023-09-06T13:37:19.861Z</updated>
+  <updated>2023-09-07T01:00:31.013Z</updated>
   <id>https://github.com/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://github.com/2023/09/06/LeetCode%E5%88%B7%E9%A2%98----2023.09.06/"/>
     <id>https://github.com/2023/09/06/LeetCode%E5%88%B7%E9%A2%98----2023.09.06/</id>
     <published>2023-09-05T16:00:00.000Z</published>
-    <updated>2023-09-06T13:37:19.861Z</updated>
+    <updated>2023-09-07T01:00:31.013Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="LeetCode刷题"><a href="#LeetCode刷题" class="headerlink" title="LeetCode刷题"></a>LeetCode刷题</h2><h5 id="这道题考察的点是闭包的应用"><a href="#这道题考察的点是闭包的应用" class="headerlink" title="这道题考察的点是闭包的应用"></a>这道题考察的点是闭包的应用</h5><blockquote><p>个人对闭包的理解：该作用域存在对上级作用域当中变量的引用即形成闭包。上级作用域内的变量，因为被下级作用域内引用，而没有被释放。就导致上级作用域内的变量，等到下级作用域执行完以后才正常得到释放（也就是说当解除了对该闭包的所有引用的时候，这个闭包才会被JS的垃圾回收机制回收）</p></blockquote><blockquote><p>闭包的作用：能够保持变量的状态，这道题就是利用了闭包的该特性。</p></blockquote><p><img src="/img/20230906_1.png" class="lazyload placeholder" data-srcset="/img/20230906_1.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="测试用例结果"></p><h4 id="这道题考察的就是数组遍历"><a href="#这道题考察的就是数组遍历" class="headerlink" title="这道题考察的就是数组遍历"></a>这道题考察的就是数组遍历</h4><p>算法思想:遍历数组，若该索引对应的值大于等于target，则直接进入下一轮循环，若小于target，则使用target-当前值得到预期的另外一个值，然后将该值与数组传入到searchHasOtherNum方法中，寻找是否含有该值，如果有，则返回值的索引，如果没有就返回-1。<br><img src="/img/20230906_2.png" class="lazyload placeholder" data-srcset="/img/20230906_2.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="测试用例结果"></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="LeetCode刷题"><a href="#LeetCode刷题" class="headerlink" title="LeetCode刷题"></a>LeetCode刷题</h2><h5 id="这道题考察的点是闭包的应用"><a href="#这道题考察的点是闭包的应用" class="headerlink" title="这道题考察的点是闭包的应用"></a>这道题考察的点是闭包的应用</h5><blockquote><p>个人对闭包的理解：该作用域存在对上级作用域当中变量的引用即形成闭包。上级作用域内的变量，因为被下级作用域内引用，而没有被释放。就导致上级作用域内的变量，等到下级作用域执行完以后才正常得到释放（也就是说当解除了对该闭包的所有引用的时候，这个闭包才会被JS的垃圾回收机制回收）</p></blockquote><blockquote><p>闭包的作用：能够保持变量的状态，这道题就是利用了闭包的该特性。</p></blockquote><p><img src="/img/20230906_1.png" class="lazyload placeholder" data-srcset="/img/20230906_1.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="测试用例结果"></p><h4 id="这道题考察的就是数组遍历"><a href="#这道题考察的就是数组遍历" class="headerlink" title="这道题考察的就是数组遍历"></a>这道题考察的就是数组遍历</h4><p>算法思想:遍历数组，若该索引对应的值大于等于target，则直接进入下一轮循环，若小于target，则使用target-当前值得到预期的另外一个值，然后将该值与数组传入到searchHasOtherNum方法中，寻找是否含有该值，如果有，则返回值的索引，如果没有就返回-1。<br><img src="/img/20230906_2.png" class="lazyload placeholder" data-srcset="/img/20230906_2.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="测试用例结果"></p><h4 id="这道题算是一道简易的括号匹配算法"><a href="#这道题算是一道简易的括号匹配算法" class="headerlink" title="这道题算是一道简易的括号匹配算法"></a>这道题算是一道简易的括号匹配算法</h4><blockquote><p>算法思想:创建一个空栈，遇到左括号进栈，遇到右括号出栈，若出栈的左括号与当前扫描到的右括号不匹配，则失败，算法结束。</p></blockquote><p><img src="/img/20230906_3.png" class="lazyload placeholder" data-srcset="/img/20230906_3.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="测试用例结果"></p>]]></content>
     
     
       
