@@ -6,7 +6,7 @@
   <link href="https://github.com/atom.xml" rel="self"/>
   
   <link href="https://github.com/"/>
-  <updated>2023-09-07T01:00:31.013Z</updated>
+  <updated>2023-09-12T06:25:35.533Z</updated>
   <id>https://github.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode刷题--20230912</title>
+    <link href="https://github.com/2023/09/12/LeetCode%E5%88%B7%E9%A2%98----2023.09.12/"/>
+    <id>https://github.com/2023/09/12/LeetCode%E5%88%B7%E9%A2%98----2023.09.12/</id>
+    <published>2023-09-11T16:00:00.000Z</published>
+    <updated>2023-09-12T06:25:35.533Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="LeetCode刷题–20230912"><a href="#LeetCode刷题–20230912" class="headerlink" title="LeetCode刷题–20230912"></a>LeetCode刷题–20230912</h2><h3 id="1、题目描述"><a href="#1、题目描述" class="headerlink" title="1、题目描述"></a>1、题目描述</h3><p><img src="/img/20230912-1.png" class="lazyload placeholder" data-srcset="/img/20230912-1.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="题目描述"></p><h3 id="算法思想："><a href="#算法思想：" class="headerlink" title="算法思想："></a>算法思想：</h3><p>创建三个指针分别指向传入的两个数组的第m个元素与末尾一个元素，第三个指针p指向nums1的最后一个元素，然后从p1与p2的位置开始向前依次比较两个数组的每个元素，每一轮p都递减。最后若p2还有没被扫描的元素，则依次放入nums1数组的前面。<br>解答：<br><img src="/img/20230912-2.png" class="lazyload placeholder" data-srcset="/img/20230912-2.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="解答"></p><h3 id="运行测试"><a href="#运行测试" class="headerlink" title="运行测试"></a>运行测试</h3><p><img src="/img/20230912-3.png" class="lazyload placeholder" data-srcset="/img/20230912-3.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="运行测试"></p><h3 id="2、纯合并两个有序数组"><a href="#2、纯合并两个有序数组" class="headerlink" title="2、纯合并两个有序数组"></a>2、纯合并两个有序数组</h3><pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">function</span> <span class="token function">merge</span><span class="token punctuation">(</span>nums1<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> m<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">,</span> nums2<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span> n<span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token keyword">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>  <span class="token keyword">const</span> nums<span class="token punctuation">:</span><span class="token keyword">number</span><span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>  <span class="token keyword">let</span> newNums1 <span class="token operator">=</span> nums1<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span>m<span class="token punctuation">)</span>  <span class="token comment" spellcheck="true">// console.log(newNums1)</span>  <span class="token keyword">let</span> newNums2 <span class="token operator">=</span> nums2<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>item<span class="token operator">=</span><span class="token operator">></span><span class="token punctuation">{</span><span class="token keyword">return</span> item<span class="token operator">!=</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">)</span>  <span class="token keyword">let</span> i<span class="token punctuation">:</span><span class="token keyword">number</span> <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>j<span class="token punctuation">:</span><span class="token keyword">number</span> <span class="token operator">=</span> <span class="token number">0</span>  <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span>newNums1<span class="token punctuation">.</span>length <span class="token operator">&amp;&amp;</span> j<span class="token operator">&lt;</span>newNums2<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">{</span>    <span class="token keyword">if</span><span class="token punctuation">(</span>newNums1<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token operator">&lt;=</span>newNums2<span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">{</span>      nums<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>newNums1<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token punctuation">}</span><span class="token keyword">else</span><span class="token punctuation">{</span>      nums<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>newNums2<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">)</span>    <span class="token punctuation">}</span>  <span class="token punctuation">}</span>  <span class="token keyword">while</span><span class="token punctuation">(</span>i<span class="token operator">&lt;</span>newNums1<span class="token punctuation">.</span>length<span class="token punctuation">)</span> nums<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>newNums1<span class="token punctuation">[</span>i<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">)</span>   <span class="token keyword">while</span><span class="token punctuation">(</span>j<span class="token operator">&lt;</span>newNums2<span class="token punctuation">.</span>length<span class="token punctuation">)</span> nums<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>newNums2<span class="token punctuation">[</span>j<span class="token operator">++</span><span class="token punctuation">]</span><span class="token punctuation">)</span>  <span class="token keyword">return</span> nums<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><h3 id="3-数组排序"><a href="#3-数组排序" class="headerlink" title="3.数组排序"></a>3.数组排序</h3><p><img src="/img/20230912-4.png" class="lazyload placeholder" data-srcset="/img/20230912-4.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="数组排序"></p><h3 id="运行测试-1"><a href="#运行测试-1" class="headerlink" title="运行测试"></a>运行测试</h3><p><img src="/img/20230912-5.png" class="lazyload placeholder" data-srcset="/img/20230912-5.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="运行测试"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;LeetCode刷题–20230912&quot;&gt;&lt;a href=&quot;#LeetCode刷题–20230912&quot; class=&quot;headerlink&quot; title=&quot;LeetCode刷题–20230912&quot;&gt;&lt;/a&gt;LeetCode刷题–20230912&lt;/h2&gt;&lt;h3 i</summary>
+      
+    
+    
+    
+    <category term="Typescript" scheme="https://github.com/categories/Typescript/"/>
+    
+    
+    <category term="Typescript" scheme="https://github.com/tags/Typescript/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode刷题-20230906</title>
@@ -479,30 +503,6 @@
     
     
     <category term="计算机基础" scheme="https://github.com/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Grid布局</title>
-    <link href="https://github.com/2023/06/17/CSS%20Grid%E5%B8%83%E5%B1%80%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://github.com/2023/06/17/CSS%20Grid%E5%B8%83%E5%B1%80%E7%9A%84%E4%BD%BF%E7%94%A8/</id>
-    <published>2023-06-16T16:00:00.000Z</published>
-    <updated>2023-07-01T08:54:30.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="CSS-Grid布局的使用"><a href="#CSS-Grid布局的使用" class="headerlink" title="CSS Grid布局的使用"></a>CSS Grid布局的使用</h1><p>介绍之前，先了解一下该门技术的优缺点，看自己是否值得学习，优缺点如下：</p><blockquote><p>优点：CSS Grid布局是一种用于创建网页布局的强大工具。它引入了一个二维网格系统，可以以行和列的形式创建布局，提供了更灵活和精确的控制，并且减少了不必要的一些计算。<br>缺点：兼容性问题：CSS Grid布局是在CSS3中引入的较新的特性，因此旧版本的浏览器可能不支持它或支持有限。</p></blockquote><h2 id="具体的使用"><a href="#具体的使用" class="headerlink" title="具体的使用"></a>具体的使用</h2><p>  <strong>布局效果如下：（利用grid布局）</strong><br> <img src="/img/result.png" class="lazyload placeholder" data-srcset="/img/result.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="效果图"><br>上图利用grid栅格系统，从上到下共三个部分，nav main footer<br>1、nav部分四个button独占一行，先看下nav部分具体的代码，再做介绍：</p><pre class=" language-css"><code class="language-css"><span class="token selector">nav</span><span class="token punctuation">{</span>    <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>    <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> <span class="token function">repeat</span><span class="token punctuation">(</span><span class="token number">4</span>,<span class="token number">1</span>fr<span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token property">gap</span><span class="token punctuation">:</span> <span class="token number">10</span>px<span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p>上面代码的意思是生成一行四列的表格，每列平摊空间，每个格子之间的间距为10px，且nav的宽度会根据屏幕的宽度进行自适应。<br> 2、main部分代码如下：</p><pre class=" language-css"><code class="language-css"><span class="token selector">main</span><span class="token punctuation">{</span>    <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">450</span>px<span class="token punctuation">;</span>    <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>    <span class="token property">gap</span><span class="token punctuation">:</span> <span class="token number">20</span>px<span class="token punctuation">;</span>    <span class="token property">grid-template-areas</span><span class="token punctuation">:</span> <span class="token string">'banner banner banner banner banner box-r-top'</span>    <span class="token string">'banner banner banner banner banner box-r-bottom'</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p>上面是main部分，使用grid布局，其中grid-template-areas将main元素分割为两行六列的栅格，并使用命名空间分别占据main的空间，下面是内部的三个元素使用空间的代码：</p><pre class=" language-css"><code class="language-css"><span class="token selector">main li<span class="token pseudo-class">:first-child</span></span><span class="token punctuation">{</span>     <span class="token property">grid-area</span><span class="token punctuation">:</span> banner<span class="token punctuation">;</span>     <span class="token property">background</span><span class="token punctuation">:</span> <span class="token url">url(./banner.jpg)</span><span class="token punctuation">;</span>     <span class="token property">background-size</span><span class="token punctuation">:</span> cover<span class="token punctuation">;</span>     <span class="token property">background-position</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span><span class="token punctuation">}</span><span class="token selector">main button</span><span class="token punctuation">{</span>     <span class="token property">color</span><span class="token punctuation">:</span> <span class="token function">var</span><span class="token punctuation">(</span>--light<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">}</span></code></pre><p>上面的grid-area是用来占用空间的，它的值填写grid-template-areas的某个值，比如写banner就会占据main的所有命名空间名称是banner的位置。</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;CSS-Grid布局的使用&quot;&gt;&lt;a href=&quot;#CSS-Grid布局的使用&quot; class=&quot;headerlink&quot; title=&quot;CSS Grid布局的使用&quot;&gt;&lt;/a&gt;CSS Grid布局的使用&lt;/h1&gt;&lt;p&gt;介绍之前，先了解一下该门技术的优缺点，看自己是否值得</summary>
-      
-    
-    
-    
-    <category term="HTML&amp;CSS" scheme="https://github.com/categories/HTML-CSS/"/>
-    
-    
-    <category term="HTML&amp;CSS" scheme="https://github.com/tags/HTML-CSS/"/>
     
   </entry>
   
