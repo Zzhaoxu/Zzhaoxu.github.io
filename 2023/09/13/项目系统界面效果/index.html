@@ -11,7 +11,7 @@
   <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-  <title>JS基础知识篇一 | Boke</title>
+  <title>部分项目界面效果 | Boke</title>
 
   <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://at.alicdn.com/t/font_1911880_c1nvbyezg17.css">
@@ -75,9 +75,9 @@
         
     
 
-<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Boke" type="application/atom+xml">
-
+<meta name="generator" content="Hexo 5.4.2">
 <style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="alternate" href="/atom.xml" title="Boke" type="application/atom+xml">
 <link rel="stylesheet" href="/css/prism-tomorrow.css" type="text/css"></head>
 
   
@@ -417,21 +417,21 @@
 
 
 <div class="post-detail-header" id="thumbnail_canvas" style="background-repeat: no-repeat; background-size: cover; 
-  background-position: center center;position: relative;background-image:url('https://pic4.zhimg.com/80/v2-83ea273b88e119d9615aed0d89aad4ab_1440w.webp')">
+  background-position: center center;position: relative;background-image:url('https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp')">
   <div class="post-detail-header-mask"></div>
   <canvas id="header_canvas"style="position:absolute;bottom:0;pointer-events:none;"></canvas>
   
   <div class="post-detail-header_info-box">
     <div class="title-box">
       <span class="title">
-        JS基础知识篇一
+        部分项目界面效果
       </span>
     </div>
     
     
       
         <span class="post-detail-header_date">
-          <i class="fas fa-calendar"></i> Published in：2023-08-12 |
+          <i class="fas fa-calendar"></i> Published in：2023-09-13 |
         </span>
       
 
@@ -439,8 +439,8 @@
         <span class="post-detail-header_categories">
           <i class="iconfont iconbookmark1"></i> category：
           
-            <a href="/categories/Typescript/" class="post-detail-header_category">
-              Typescript
+            <a href="/categories/Product/" class="post-detail-header_category">
+              Product
             </a>
           
         </span>
@@ -449,11 +449,11 @@
       
         <div class="post-detail-header_wordcount">
           <span class="totalcount">
-            <i class="fas fa-file-text-o"></i> Words: 2.6k |
+            <i class="fas fa-file-text-o"></i> Words: 89 |
           </span>
   
           <span class="min2read">
-            <i class="fas fa-clock"></i> Reading time: 9min |
+            <i class="fas fa-clock"></i> Reading time: 1min |
           </span>
   
           
@@ -480,120 +480,22 @@
   <div class="main-content">
     <article class="post post-detail">
       <div class="post-content">
-        <h2 id="JS基础知识篇一"><a href="#JS基础知识篇一" class="headerlink" title="JS基础知识篇一"></a>JS基础知识篇一</h2><h6 id="1-js数组常用方法-哪些会改变原数组-遍历方法有哪些方式可以停止遍历？"><a href="#1-js数组常用方法-哪些会改变原数组-遍历方法有哪些方式可以停止遍历？" class="headerlink" title="1. js数组常用方法 哪些会改变原数组 遍历方法有哪些方式可以停止遍历？"></a>1. js数组常用方法 哪些会改变原数组 遍历方法有哪些方式可以停止遍历？</h6><p>   首先说一下会改变原数组的方法有哪些：<br>   push() 和 unshift()：在数组末尾或开头添加元素。<br>pop() 和 shift()：从数组末尾或开头删除元素。<br>splice()：删除、替换或插入元素。<br>reverse()：反转数组的顺序。<br>sort()：对数组元素进行排序。<br>fill()：用指定值填充数组的元素。<br>copyWithin()：从数组内部复制元素到其他位置。<br>不会改变原数组的方法：<br>concat()：合并多个数组，返回一个新数组。<br>join()：将数组元素连接为字符串。<br>slice()：返回选定的数组部分。<br>filter()：返回符合条件的新数组。<br>map()：根据函数对数组每个元素进行操作，返回新数组。<br>reduce() 和 reduceRight()：从左/右累积数组元素。<br>every()：检查数组所有元素是否满足条件。<br>some()：检查数组是否有满足条件的元素。<br>find() 和 findIndex()：查找数组中符合条件的第一个元素及其索引。<br>includes()：检查数组是否包含某个元素。<br>indexOf() 和 lastIndexOf()：返回元素在数组中的索引。<br>toString() 和 toLocaleString()：将数组转换为字符串。<br>遍历途中中止遍历：<br>使用原生的for循环遍历+break；</p>
-<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <h3 id="融媒体大屏系列—-教育平台业务"><a href="#融媒体大屏系列—-教育平台业务" class="headerlink" title="融媒体大屏系列—-教育平台业务"></a>融媒体大屏系列—-教育平台业务<img src="/img/H5%E9%A1%B5%E9%9D%A2/1.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/1.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="融媒体大屏1"></h3><p> <img src="/img/H5%E9%A1%B5%E9%9D%A2/2.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/2.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"><br><img src="/img/H5%E9%A1%B5%E9%9D%A2/3.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/3.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"><br><img src="/img/H5%E9%A1%B5%E9%9D%A2/4.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/4.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"></p>
+<h3 id="后台管理系统系列—教育平台业务"><a href="#后台管理系统系列—教育平台业务" class="headerlink" title="后台管理系统系列—教育平台业务"></a>后台管理系统系列—教育平台业务</h3><p><img src="/img/H5%E9%A1%B5%E9%9D%A2/5.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/5.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"><br><img src="/img/H5%E9%A1%B5%E9%9D%A2/6.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/6.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"></p>
+<p><img src="/img/H5%E9%A1%B5%E9%9D%A2/7.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/7.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"></p>
+<h3 id="后台管理系统系列—共享电单车业务-给公司运营人员使用"><a href="#后台管理系统系列—共享电单车业务-给公司运营人员使用" class="headerlink" title="后台管理系统系列—共享电单车业务 给公司运营人员使用"></a>后台管理系统系列—共享电单车业务 给公司运营人员使用</h3><p><img src="/img/H5%E9%A1%B5%E9%9D%A2/8.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/8.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"><br><img src="/img/H5%E9%A1%B5%E9%9D%A2/9.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/9.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"><br><img src="/img/H5%E9%A1%B5%E9%9D%A2/10.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/10.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"><br><img src="/img/H5%E9%A1%B5%E9%9D%A2/11.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/11.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"></p>
+<p><img src="/img/H5%E9%A1%B5%E9%9D%A2/12.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/12.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"><br><img src="/img/H5%E9%A1%B5%E9%9D%A2/13.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/13.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"></p>
+<p><img src="/img/H5%E9%A1%B5%E9%9D%A2/14.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/14.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"><br><img src="/img/H5%E9%A1%B5%E9%9D%A2/15.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/15.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"><br><img src="/img/H5%E9%A1%B5%E9%9D%A2/16.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/16.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"><br><img src="/img/H5%E9%A1%B5%E9%9D%A2/17.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/17.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"><br><img src="/img/H5%E9%A1%B5%E9%9D%A2/18.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/18.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"></p>
+<p><img src="/img/H5%E9%A1%B5%E9%9D%A2/19.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/19.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"></p>
+<h3 id="客户端—微信小程序-给用户端使用"><a href="#客户端—微信小程序-给用户端使用" class="headerlink" title="客户端—微信小程序  给用户端使用"></a>客户端—微信小程序  给用户端使用</h3><p><img src="/img/H5%E9%A1%B5%E9%9D%A2/20.png" class="lazyload placeholder" data-srcset="/img/H5%E9%A1%B5%E9%9D%A2/20.png" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="在这里插入图片描述"><br>优惠劵的发放与配置由运营人员通过后台管理系统配置。</p>
 
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> numbers<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>numbers<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Found 3 at index:"</span><span class="token punctuation">,</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">break</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 停止遍历</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>在some中中止遍历：</p>
-<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-numbers<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span>value<span class="token punctuation">,</span> index<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span>value <span class="token operator">===</span> <span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Found 3 at index:"</span><span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token keyword">return</span> <span class="token keyword">true</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 停止遍历</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h6 id="2-sort函数怎么从大到小排序"><a href="#2-sort函数怎么从大到小排序" class="headerlink" title="2.sort函数怎么从大到小排序"></a>2.sort函数怎么从大到小排序</h6><pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> numbers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">8</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">7</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-
-<span class="token comment" spellcheck="true">// 使用比较函数将数组从大到小排序</span>
-numbers<span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> b <span class="token operator">-</span> a<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>numbers<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出: [10, 8, 7, 5, 2]</span>
-</code></pre>
-<p>如果 b - a 的值为负数，意味着 b 应该排在 a 前面，所以 a 和 b 的位置会交换。<br>如果 b - a 的值为零，意味着 a 和 b 相等的顺序不需要改变。<br>如果 b - a 的值为正数，意味着 b 应该排在 a 后面，所以它们的位置保持不变。</p>
-<h5 id="3-深拷贝和浅拷贝的方法有哪些"><a href="#3-深拷贝和浅拷贝的方法有哪些" class="headerlink" title="3.深拷贝和浅拷贝的方法有哪些"></a>3.深拷贝和浅拷贝的方法有哪些</h5><p>浅拷贝—————-<br>Object.assign()： Object.assign(target, …sources) 方法可以将一个或多个源对象的属性复制到目标对象中。这是浅拷贝，如果属性值是对象，则复制的是引用。</p>
-<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> source <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token punctuation">{</span> c<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> shallowCopy <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> source<span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<p>Spread Operator（扩展运算符）： 使用 … 扩展运算符也可以进行浅拷贝。</p>
-<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> source <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token punctuation">{</span> c<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> shallowCopy <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">...</span>source <span class="token punctuation">}</span><span class="token punctuation">;</span>
-</code></pre>
-<p>深拷贝———————–<br>递归方法： 递归地遍历对象的所有属性，对每个属性进行复制</p>
-<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">function</span> <span class="token function">deepCopy</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> obj <span class="token operator">!==</span> <span class="token string">'object'</span> <span class="token operator">||</span> obj <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">return</span> obj<span class="token punctuation">;</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">const</span> copy <span class="token operator">=</span> <span class="token keyword">Array</span><span class="token punctuation">.</span><span class="token function">isArray</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span> <span class="token operator">?</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-
-  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>obj<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-      copy<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">deepCopy</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-  <span class="token punctuation">}</span>
-
-  <span class="token keyword">return</span> copy<span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>JSON.stringify() 和 JSON.parse()： 利用 JSON 序列化和反序列化可以实现深拷贝，但要注意它会忽略函数、循环引用等特殊情况</p>
-<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> source <span class="token operator">=</span> <span class="token punctuation">{</span> a<span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> b<span class="token punctuation">:</span> <span class="token punctuation">{</span> c<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> deepCopy <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">parse</span><span class="token punctuation">(</span>JSON<span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>source<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-</code></pre>
-<h5 id="4-es6-的new关键字-new-构造函数的时候this的指向改变四次-分别指向什么？"><a href="#4-es6-的new关键字-new-构造函数的时候this的指向改变四次-分别指向什么？" class="headerlink" title="4.es6 的new关键字 new 构造函数的时候this的指向改变四次 分别指向什么？"></a>4.es6 的new关键字 new 构造函数的时候this的指向改变四次 分别指向什么？</h5><p>使用 new 关键字来创建对象实例时，this 的指向会经历四次变化。这四次变化可以用来解释构造函数内部的执行过程。下面是这四次变化的具体情况：<br>①创建一个新对象： 当你使用 new 关键字调用构造函数时，首先会创建一个新的空对象。<br>②将新对象的原型链链接到构造函数的原型对象： 新对象会继承构造函数的原型对象上的属性和方法。<br>③将构造函数的作用域赋给新对象的 this： 此时，构造函数内部的代码会在新对象的上下文中执行，构造函数中的 this 指向新创建的对象。<br>④返回新对象： 如果构造函数没有显式返回其他对象，则返回新创建的对象</p>
-<h5 id="5-数字千分位展示"><a href="#5-数字千分位展示" class="headerlink" title="5. 数字千分位展示"></a>5. 数字千分位展示</h5><pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">const</span> <span class="token keyword">number</span> <span class="token operator">=</span> <span class="token number">1234567.89</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> formattedNumber <span class="token operator">=</span> <span class="token keyword">number</span><span class="token punctuation">.</span><span class="token function">toLocaleString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>formattedNumber<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出: "1,234,567.89"</span>
-</code></pre>
-<h5 id="6-ES6模块化原理"><a href="#6-ES6模块化原理" class="headerlink" title="6.ES6模块化原理"></a>6.ES6模块化原理</h5><p>ES6 模块化基于两个主要概念：导入（import）和导出（export）。<br>导出（export）： 在一个模块中，使用 export 关键字将变量、函数、类等导出，使它们能够在其他模块中使用。</p>
-<pre class=" language-typescript"><code class="language-typescript"><span class="token comment" spellcheck="true">// example.js</span>
-
-<span class="token keyword">export</span> <span class="token keyword">const</span> name <span class="token operator">=</span> <span class="token string">"John"</span><span class="token punctuation">;</span>
-<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"Hello!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>导入（import）： 在另一个模块中，你可以使用 import 关键字来引入其他模块导出的内容。</p>
-<pre class=" language-typescript"><code class="language-typescript"><span class="token comment" spellcheck="true">// app.js</span>
-
-<span class="token keyword">import</span> <span class="token punctuation">{</span> name<span class="token punctuation">,</span> sayHello <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'./example.js'</span><span class="token punctuation">;</span>
-
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出: "John"</span>
-<span class="token function">sayHello</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 输出: "Hello!"</span>
-</code></pre>
-<p>模块之间的连接： 当一个模块导入另一个模块时，JavaScript 引擎会自动执行被导入模块的代码，并且返回被导出的内容，使其在导入模块中可用。<br>静态解析： ES6 模块化是静态解析的，这意味着模块的依赖关系在代码被执行之前就可以确定。这有助于提高性能和可维护性。<br>单一实例： 每个模块在应用中只会被加载和执行一次，无论在多少地方导入它。这确保了模块的单一实例性质。<br>默认导出和导入： 除了命名导出，ES6 还支持默认导出和导入。默认导出可以是任何值，而不仅限于变量或函数。</p>
-<h5 id="7-commonJS和ES模块化区别"><a href="#7-commonJS和ES模块化区别" class="headerlink" title="7. commonJS和ES模块化区别"></a>7. commonJS和ES模块化区别</h5><p>CommonJS 模块化：<br>用法： CommonJS 最初是为服务器端开发而设计的，主要在 Node.js 中使用。在 CommonJS 中，模块的加载是同步的，模块被执行后，它的输出会被缓存，后续引用直接使用缓存的值。<br>导入和导出： 使用 require 来导入模块，使用 module.exports 导出模块。<br>动态加载： CommonJS 允许在运行时动态加载模块，这使得模块的加载可以根据条件进行。<br>运行时执行： 模块的代码在导入时会被执行，因此适用于同步加载和运行的场景。<br>ES6 模块化：<br>用法： ES6 模块化是 JavaScript 标准库的一部分，可以在现代浏览器中使用，也可以在 Node.js 中使用。在 ES6 模块化中，模块的加载是异步的，加载后会生成一个只读引用。<br>导入和导出： 使用 import 来导入模块，使用 export 导出模块。<br>静态加载： ES6 模块化在编译阶段就确定了模块的依赖关系，使得代码更容易静态分析和优化。<br>编译时执行： 模块的代码在导入时不会立即执行，而是在被需要时按需执行，适用于异步加载的场景。<br>默认导出和导入： ES6 模块化支持默认导出和导入，使得在导入时可以更加灵活。</p>
-<p>对于上面两者的执行时机，再做一下解释：<br>在 CommonJS 中，模块的代码在导入时立即执行，输出被缓存，后续导入直接使用缓存。<br>在 ES6 模块化中，模块的代码在导入时不会立即执行，只有在实际使用时才会被执行，导入的代码会被标记以便于后续执行。</p>
-<h5 id="8-async和await区别"><a href="#8-async和await区别" class="headerlink" title="8. async和await区别"></a>8. async和await区别</h5><p>async 和 await 是 JavaScript 中用于处理异步操作的关键字，它们一起工作，使异步代码的编写和理解更加简洁和直观。下面是它们的主要区别：<br>async：<br>async 关键字用于声明一个函数是异步的，即使函数内部有同步的代码，也会被视为异步函数。<br>异步函数会隐式地返回一个 Promise 对象，这个 Promise 对象的状态和值会根据函数内部的执行结果进行设置。</p>
-<pre class=" language-typescript"><code class="language-typescript">async <span class="token keyword">function</span> <span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token string">'Data fetched'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 返回一个 Promise，状态为已解决，并携带值 'Data fetched'</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>await：<br>await 关键字用于等待一个 Promise 对象的解决状态，只能在异步函数内部使用。<br>当遇到 await 时，函数会暂停执行，直到 Promise 对象的状态变为已解决，并返回解决的值。</p>
-<pre class=" language-typescript"><code class="language-typescript">async <span class="token keyword">function</span> <span class="token function">fetchData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> data <span class="token operator">=</span> await <span class="token function">fetchDataFromServer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 等待 fetchDataFromServer() 的 Promise 解决</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span>
-</code></pre>
-<p>总结：<br>async 关键字用于声明异步函数，返回一个 Promise。<br>await 关键字用于等待 Promise 的解决状态，只能在异步函数内部使用，使代码执行等待异步操作完成。<br>需要注意的是，在使用 await 时，必须将它放在异步函数内部，以便正确地等待和处理异步操作。</p>
-<h5 id="9-如果在const之前使用了变量会出现什么？"><a href="#9-如果在const之前使用了变量会出现什么？" class="headerlink" title="9.如果在const之前使用了变量会出现什么？"></a>9.如果在const之前使用了变量会出现什么？</h5><p>看下面的代码：</p>
-<pre class=" language-typescript"><code class="language-typescript"><span class="token keyword">let</span> x <span class="token operator">=</span> <span class="token number">10</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> y <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">5</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>y<span class="token punctuation">)</span><span class="token punctuation">;</span> 
-</code></pre>
-<p>上面的代码正常输出15，不会报错！！<br>解释：const 关键字声明的常量确实需要在声明时进行赋值，但在 const 声明之前使用变量进行赋值或操作是没有问题的，不会导致语法错误。</p>
-<h5 id="10-async和defer在js加载的时候区别"><a href="#10-async和defer在js加载的时候区别" class="headerlink" title="10. async和defer在js加载的时候区别"></a>10. async和defer在js加载的时候区别</h5><p>async 和 defer 是用于控制外部 JavaScript 文件加载和执行时机的两个属性。它们可以在 <script> 标签中使用，影响脚本的加载和执行顺序。以下是它们的区别：<br>async 属性：<br>当使用 async 属性时，浏览器会异步加载脚本，不会阻塞 HTML 解析。<br>脚本加载完成后，会立即开始执行。执行时机可能在其他资源（如 CSS 和图片）加载之前，也可能在其他资源加载之后，取决于加载完成的时间。<br>适用于不依赖其他脚本和 DOM 的脚本，例如一些统计代码或独立的插件。</p>
-<pre class=" language-typescript"><code class="language-typescript"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"script.js"</span> async<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-</code></pre>
-<p>defer 属性：<br>当使用 defer 属性时，浏览器会异步加载脚本，但会等待 HTML 解析完成后再执行脚本。<br>脚本的执行时机是在 DOMContentLoaded 事件之前，保证脚本能够访问和操作 DOM。<br>适用于需要等待整个文档解析完毕才执行的脚本，可以操作 DOM。</p>
-<pre class=" language-typescript"><code class="language-typescript"><span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"script.js"</span> defer<span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-</code></pre>
-<p>总结：<br>async 属性用于异步加载并立即执行脚本，执行时机不确定。<br>defer 属性用于异步加载脚本，并在整个文档解析完成后执行，执行时机在 DOMContentLoaded 事件之前。</p>
-</script></p>
       </div>
       <div class="post-tags-categories">
         
         <div class="tags">
           
-            <a href="/tags/Typescript/" class="">
-              Typescript
+            <a href="/tags/Product/" class="">
+              Product
             </a>
           
         </div>
@@ -607,7 +509,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     </li>
     <li class="post-copyright-link">
     <strong>link:  </strong>
-    <a href="/2023/08/12/JS基础知识篇1/" target="_blank" title="JS基础知识篇一">https://github.com/2023/08/12/JS基础知识篇1/</a>
+    <a href="/2023/09/13/项目系统界面效果/" target="_blank" title="部分项目界面效果">https://github.com/2023/09/13/项目系统界面效果/</a>
     </li>
     <li class="post-copyright-license">
       <strong>Copyright notice:   </strong>
@@ -625,41 +527,22 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 
 
-  
-  <div class="post-nav-prev post-nav-item">
-    <div class="post-nav-img" style="background-size: cover; 
-      background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-    </div>
-    <a href="/2023/08/13/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%AF%872/" class="post-nav-link">
-      <div class="title">
-        <i class="fas fa-angle-left"></i> Prev:
-        <div class="title-text">JS基础知识篇二</div>
-      </div>
-      
-      <!-- <div class="content">
-        JS基础知识篇二1.解释一下浏览器多线程以及如何实现？浏览器通常采用多线程来处理不同的任务，以提高用户体验和性能。主要的
-      </div> -->
-    </a>
-  </div>
-
 
 
   
   <div class="post-nav-next post-nav-item">
     <div class="post-nav-img" style="background-size: cover; 
       background-position: center center;">
-      <img class="lazyload lazyload placeholder" src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
+      <img class="lazyload lazyload placeholder" src="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" class="lazyload placeholder" data-srcset="https://picx.zhimg.com/80/v2-b44931ea513e5f7b3b06f2703f79653c_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" src="" alt="">
     </div>
-    <a href="/2023/08/11/JS%E7%9A%84%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E5%92%8C%E6%99%AE%E9%80%9A%E5%87%BD%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB/" class="post-nav-link">
+    <a href="/2023/09/12/LeetCode%E5%88%B7%E9%A2%98----2023.09.12/" class="post-nav-link">
       <div class="title">
         Next: <i class="fas fa-angle-right"></i>
-        <div class="title-text">JS箭头函数和普通函数的区别</div>
+        <div class="title-text">LeetCode刷题--20230912</div>
       </div>
       <!-- <div class="content">
-        JS箭头函数和普通函数的区别首先看一下两种函数的书写形式：
-箭头函数：()=>{}
-普通函数:function xxx(
+        LeetCode刷题–202309121、题目描述
+算法思想：创建三个指针分别指向传入的两个数组的第m个元素与末尾一个元
       </div> -->
     </a>
   </div>
@@ -974,7 +857,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   <div class='content'>
     <div class="toc-main">
       <div class="toc-content">
-        <!-- <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JS%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%AF%87%E4%B8%80"><span class="toc-text">JS基础知识篇一</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1-js%E6%95%B0%E7%BB%84%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95-%E5%93%AA%E4%BA%9B%E4%BC%9A%E6%94%B9%E5%8F%98%E5%8E%9F%E6%95%B0%E7%BB%84-%E9%81%8D%E5%8E%86%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B%E6%96%B9%E5%BC%8F%E5%8F%AF%E4%BB%A5%E5%81%9C%E6%AD%A2%E9%81%8D%E5%8E%86%EF%BC%9F"><span class="toc-text">1. js数组常用方法 哪些会改变原数组 遍历方法有哪些方式可以停止遍历？</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-sort%E5%87%BD%E6%95%B0%E6%80%8E%E4%B9%88%E4%BB%8E%E5%A4%A7%E5%88%B0%E5%B0%8F%E6%8E%92%E5%BA%8F"><span class="toc-text">2.sort函数怎么从大到小排序</span></a></li></ol></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E6%B7%B1%E6%8B%B7%E8%B4%9D%E5%92%8C%E6%B5%85%E6%8B%B7%E8%B4%9D%E7%9A%84%E6%96%B9%E6%B3%95%E6%9C%89%E5%93%AA%E4%BA%9B"><span class="toc-text">3.深拷贝和浅拷贝的方法有哪些</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-es6-%E7%9A%84new%E5%85%B3%E9%94%AE%E5%AD%97-new-%E6%9E%84%E9%80%A0%E5%87%BD%E6%95%B0%E7%9A%84%E6%97%B6%E5%80%99this%E7%9A%84%E6%8C%87%E5%90%91%E6%94%B9%E5%8F%98%E5%9B%9B%E6%AC%A1-%E5%88%86%E5%88%AB%E6%8C%87%E5%90%91%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">4.es6 的new关键字 new 构造函数的时候this的指向改变四次 分别指向什么？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E6%95%B0%E5%AD%97%E5%8D%83%E5%88%86%E4%BD%8D%E5%B1%95%E7%A4%BA"><span class="toc-text">5. 数字千分位展示</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-ES6%E6%A8%A1%E5%9D%97%E5%8C%96%E5%8E%9F%E7%90%86"><span class="toc-text">6.ES6模块化原理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-commonJS%E5%92%8CES%E6%A8%A1%E5%9D%97%E5%8C%96%E5%8C%BA%E5%88%AB"><span class="toc-text">7. commonJS和ES模块化区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-async%E5%92%8Cawait%E5%8C%BA%E5%88%AB"><span class="toc-text">8. async和await区别</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-%E5%A6%82%E6%9E%9C%E5%9C%A8const%E4%B9%8B%E5%89%8D%E4%BD%BF%E7%94%A8%E4%BA%86%E5%8F%98%E9%87%8F%E4%BC%9A%E5%87%BA%E7%8E%B0%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">9.如果在const之前使用了变量会出现什么？</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#10-async%E5%92%8Cdefer%E5%9C%A8js%E5%8A%A0%E8%BD%BD%E7%9A%84%E6%97%B6%E5%80%99%E5%8C%BA%E5%88%AB"><span class="toc-text">10. async和defer在js加载的时候区别</span></a></li></ol></li></ol></li></ol></li></ol> -->
+        <!-- <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%9E%8D%E5%AA%92%E4%BD%93%E5%A4%A7%E5%B1%8F%E7%B3%BB%E5%88%97%E2%80%94-%E6%95%99%E8%82%B2%E5%B9%B3%E5%8F%B0%E4%B8%9A%E5%8A%A1"><span class="toc-text">融媒体大屏系列—-教育平台业务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%B3%BB%E5%88%97%E2%80%94%E6%95%99%E8%82%B2%E5%B9%B3%E5%8F%B0%E4%B8%9A%E5%8A%A1"><span class="toc-text">后台管理系统系列—教育平台业务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8E%E5%8F%B0%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E7%B3%BB%E5%88%97%E2%80%94%E5%85%B1%E4%BA%AB%E7%94%B5%E5%8D%95%E8%BD%A6%E4%B8%9A%E5%8A%A1-%E7%BB%99%E5%85%AC%E5%8F%B8%E8%BF%90%E8%90%A5%E4%BA%BA%E5%91%98%E4%BD%BF%E7%94%A8"><span class="toc-text">后台管理系统系列—共享电单车业务 给公司运营人员使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%A2%E6%88%B7%E7%AB%AF%E2%80%94%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-%E7%BB%99%E7%94%A8%E6%88%B7%E7%AB%AF%E4%BD%BF%E7%94%A8"><span class="toc-text">客户端—微信小程序  给用户端使用</span></a></li></ol> -->
         <div class="toc"></div>
       </div>
     </div>
@@ -1000,6 +883,27 @@ console<span class="token punctuation">.</span><span class="token function">log<
       <!-- hash算法 -->
       
       <div class="aside-list">
+        
+          <div class="aside-list-item">
+            
+            
+            
+
+            <div class="post-img-box">
+              <a href="/2023/09/13/%E9%A1%B9%E7%9B%AE%E7%B3%BB%E7%BB%9F%E7%95%8C%E9%9D%A2%E6%95%88%E6%9E%9C/" class="post-img " style="background-size: cover; 
+                background-position: center center;">
+                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" class="lazyload placeholder" data-srcset="https://pic3.zhimg.com/80/v2-e5c15010b8ba4608a1974403a02a2da0_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
+              </a>
+            </div>
+            <div class="post-date-title">
+              <div>
+                
+                  <span class="post-date">09-13</span>
+                
+              </div>
+              <a class="post-title" href="/2023/09/13/%E9%A1%B9%E7%9B%AE%E7%B3%BB%E7%BB%9F%E7%95%8C%E9%9D%A2%E6%95%88%E6%9E%9C/">部分项目界面效果</a>
+            </div>
+          </div>
         
           <div class="aside-list-item">
             
@@ -1049,7 +953,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
             
 
             <div class="post-img-box">
-              <a href="/2023/08/14/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%863/" class="post-img " style="background-size: cover; 
+              <a href="/2023/08/14/JS%E5%85%AB%E8%82%A1%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B8%89/" class="post-img " style="background-size: cover; 
                 background-position: center center;">
                 <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" class="lazyload placeholder" data-srcset="https://pic2.zhimg.com/80/v2-29e78b52051ce542adf6d786d61fbd19_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
               </a>
@@ -1060,28 +964,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
                   <span class="post-date">08-14</span>
                 
               </div>
-              <a class="post-title" href="/2023/08/14/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%863/">JS基础知识篇三</a>
-            </div>
-          </div>
-        
-          <div class="aside-list-item">
-            
-            
-            
-
-            <div class="post-img-box">
-              <a href="/2023/08/13/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%AF%872/" class="post-img " style="background-size: cover; 
-                background-position: center center;">
-                <img class="lazyload lazyload placeholder" style="width:100%;height:100%;object-fit:cover;" data-src="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" class="lazyload placeholder" data-srcset="https://pica.zhimg.com/80/v2-61f99f8dcf899f54cad2a1aa28b21e44_1440w.webp" srcset="https://pic1.zhimg.com/v2-cd38920285d125be80b3eb504052c550_b.webp" alt="">
-              </a>
-            </div>
-            <div class="post-date-title">
-              <div>
-                
-                  <span class="post-date">08-13</span>
-                
-              </div>
-              <a class="post-title" href="/2023/08/13/%E5%89%8D%E7%AB%AF%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E7%AF%872/">JS基础知识篇二</a>
+              <a class="post-title" href="/2023/08/14/JS%E5%85%AB%E8%82%A1%E9%9D%A2%E8%AF%95%E9%A2%98%E4%B8%89/">JS八股面试题三</a>
             </div>
           </div>
         
